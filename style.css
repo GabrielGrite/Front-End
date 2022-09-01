@@ -17,6 +17,12 @@
     z-index: 999;
 }
 
+hr {
+  width: 95%;
+  margin: 25px 25px;
+  border: 1px solid rgb(19, 228, 141);
+}
+
 .navbar-container {
     display: flex;
     justify-content: space-between;
@@ -30,7 +36,7 @@
 
 #logo{
     background-color: white;
-    background-image: linear-gradient(to top, gray 0%, white 100%);
+    background-image: linear-gradient(to top, rgb(19, 228, 141) 0%, white 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -39,7 +45,7 @@
     align-items: center;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 30px;
 }
 
 .fa-gem {
@@ -89,7 +95,7 @@
 }
 
 .navbar__links:hover{
-    color: red;
+    color: rgb(19, 228, 141);
     transition: all 0.3s ease;
 }
 
@@ -249,7 +255,6 @@
     top: 0;
   }
   
-  
   /* Fading animation */
   .fade {
     animation-name: fade;
@@ -262,23 +267,38 @@
   }
 
   .main__text {
-    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 50px 70px;
   }
 
   .main__text img {
     float: left;
-    margin: 20px 50px;
+    padding-right: 50px;
+    width: 400px;
+    height: 400px;
   }
 
-  .main__text h2 {
-    font-size: 25px;
-    padding: 10px 50px;
+  .main__text hr{
+    margin: 10px 5px;
+    width: 75px;
+    align-self: left;
+    border: 1px solid darkgray;
   }
 
-  .main__text p {
-    display: flex;
+  .main__text__content h2 {
+    font-size: 30px;
+    text-align: left;
+    vertical-align: middle;
+    color: rgb(19, 228, 141);
+  }
+
+  .main__text__content p {
     font-size: 20px;
     text-align: left;
+    vertical-align: middle;
   }
 
   @media screen and (max-width: 720px) {
@@ -289,22 +309,127 @@
       }
 
     .main__text img {
-        display: block;
-        float: left;
-        margin: 0 8% 10px;
+        align-self: center;
         width: 85%;
+        padding: 0 0;
+        opacity: 1;
       }
     
-      .main__text h2 {
-        font-size: 24px;
+      .main__text__content h2 {
         text-align: center;
-        padding: 20px 50px;
+        font-size: 24px;
+        padding: 0 20px;
+        color: rgb(19, 228, 141);
       }
     
-      .main__text p {
-        display: flex;
+      .main__text__content p {
+        grid-column: 1;
         font-size: 18px;
-        text-align: left;
+        text-align: center;
+      }
+
+      .main__text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 50px 50px;
+        z-index: 1;
+      }
+
+      .main__text hr{
+        margin: 10px auto;
+        width: 75px;
+        text-align: center;
+        border: 1px solid darkgray;
       }
 
   }
+
+  .merchant__image img {
+    float:right;
+    width: 400px;
+    height: 400px;
+    padding-left: 50px;
+  }
+
+  .merchant__image__container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 0 auto;
+    align-items: center;
+    background-image: linear-gradient(rgb(255, 255, 255) , rgb(182, 174, 174));
+    z-index: 1;
+    width: 100%;
+    padding: 0 50px 30px;
+  }
+
+  .merchant__content h2 {
+    font-size: 30px;
+    color: rgb(19, 228, 141); 
+  }
+
+  .merchant__content p {
+    font-size: 20px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .merchant__content hr{
+    margin: 10px 5px;
+    width: 75px;
+    align-self: left;
+    border: 1px solid darkgray;
+  }
+
+  footer {
+    padding-top: 80px;
+    background-color: #3b3b3b;
+  }
+
+  @media screen and (max-width: 720px) {
+
+    .merchant__image img {
+        align-self: center;
+        width: 85%;
+        opacity: 1;
+      }
+    
+    .merchant__content h2 {
+      text-align: center;
+      font-size: 24px;
+      color: rgb(19, 228, 141);
+    }
+  
+    .merchant__content p {
+      grid-column: 1;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .merchant__image__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0 50px 30px;
+      z-index: 1;
+    }
+
+    .merchant__content hr{
+      margin: 10px auto;
+      text-align: center;
+      border: 1px solid darkgray;
+
+    }
+
+    hr {
+      width: 85%;
+      margin: 25px auto;
+      border: 1px solid rgb(19, 228, 141);
+    }
+
+  }
+
+
+
+
+
