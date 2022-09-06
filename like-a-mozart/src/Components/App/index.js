@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
 
 import { Route, BrowserRouter, Routes } from "react-router-dom";
