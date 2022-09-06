@@ -17,11 +17,6 @@
   z-index: 999;
 }
 
-hr {
-  width: 95%;
-  margin: 25px 25px;
-  border: 1px solid rgb(19, 228, 141);
-}
 
 .navbar-container {
   display: flex;

@@ -1,20 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
-import HomePage from "./Pages/Home/Home";
 
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import Products from "./Pages/Products/Products";
-import AboutPage from "./Pages/About/About";
+import HomePage from "../Pages/HomePage";
+import ProductsPage from "../Pages/ProductsPage";
+import AboutPage from "../Pages/AboutPage";
+import Navbar from "./Navbar";
 
-
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route element={<HomePage/>} path="/" exact />
-        <Route element={<Products/>} path="products" exact />
+        <Route element={<ProductsPage/>} path="products" exact />
         <Route element={<AboutPage/>} path="about" exact />
       </Routes>
     </BrowserRouter>
