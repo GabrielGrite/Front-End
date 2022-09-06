@@ -36,8 +36,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-container">
         <Link to="/" className="logo">
-          <MusicIcon className="logo__icon" />
-          Like a Mozart
+          <MusicIcon className="logo__icon">Like a Mozart</MusicIcon>
         </Link>
         <MobileMenu onClick={toggleMenu}/>
         <NavbarMenu active={menuActive}>
