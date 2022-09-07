@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./style.css";
 
 import { Link } from "react-router-dom";
 import MusicIcon from "../../ui/MusicIcon";

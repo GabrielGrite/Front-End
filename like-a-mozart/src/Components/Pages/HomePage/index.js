@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./style.css";
 import secondaryBanner from "../../../images/secondary-banner-placeholder.jpg";
 import undrawOffRoadReLeme from "../../../images/undraw_off_road_re_leme.svg";
 import merchantImage from "../../../images/undraw_compose_music_re_wpiw.svg";
