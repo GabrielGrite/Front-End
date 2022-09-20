@@ -4,7 +4,7 @@ import productsAPI
 class API:
     
     def __init__(self):
-        self.Search_Prod("Baixo")
+        self.Search_Prod()
 
     
     def Create_User(self,firts_name ,last_name, age):
@@ -27,8 +27,8 @@ class API:
 
     #-----------------------------------
 
-    def Search_Prod(self,filter):
-        productsAPI.Search_products(filter)
+    def Search_Prod(self):
+        productsAPI.Search_products()
 
     #-----------------------------------
 

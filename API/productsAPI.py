@@ -1,6 +1,8 @@
 import requests
 import json
 
+configs = dict()
+
 db_link = 'https://unimetro---like-a-mozart-default-rtdb.firebaseio.com'
 
 #Post
@@ -11,18 +13,15 @@ def Create_Product(name ,type, value):
     print(request.text)
 
 #Get
-def Search_products(filter):
+def Search_products():
+        
         request = requests.get(f'{db_link}/Produtos/.json')
-        with open("Products.json") as json_file:
-            dic_request = request.json()
-            for name in dic_request:
-                User = dic_request[name]['Nome']
-                if User == filter:
-                    print(name)
-                else:
-                    print("Not found")
-            
-        json.dumps(dic_request,indent=4)
+        dic_request = request.json()
+        print(dic_request)
+        configs['Produtos'] = [dic_request]
+        with open("Products.json", "w") as json_file:
+                json.dump(configs,json_file,indent=6)
+
         
 #Delete
 def Delete_products(filter):
