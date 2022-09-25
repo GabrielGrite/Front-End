@@ -12,12 +12,13 @@ def Create_User(firts_name ,last_name, age):
     print(request.text)
 
 #Get
-def Search_user(firts_name):
+def Search_user(user,password):
     request = requests.get(f'{db_link}/User/.json')
     dic_request = request.json()
     for name in dic_request.items():
         User = dic_request[name]['Nome']
-        if User == firts_name:
+        Pass = dic_request[name]['Senha']
+        if User == user and Pass == password:
             print(name)
         
 #Delete

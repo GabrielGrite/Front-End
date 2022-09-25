@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento</title>
+
+    <link rel="stylesheet" href='{{ url_for("static", filename="css/style.css") }}'>
+    
+    <script src="https://kit.fontawesome.com/259ef15be0.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    {% if content != "" %}
+        <h3>{{ content }}</h3>
+    {% endif %}
+
+    <div class="navbar">
+        <div class="navbar-container">
+            <a href='{{ url_for("home") }}' id="logo">
+                <i class="fa-solid fa-music">  Like a Mozart</i>
+            </a>
+            <div class="navbar_toogle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href='{{ url_for("home") }}' class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href='{{ url_for("about") }}' class="navbar__links">About us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href='{{ url_for("products") }}' class="navbar__links">Produtos</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href='{{ url_for("login") }}' class="button">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="input-products">
+        <form action='{{ url_for("gerenciamento_add")}}' method="post">
+            <label for="firstnameADD">Nome do instrumento:</label>
+            <input type="text" id="firstnameADD" name="fnameADD" placeholder="firstname">
+            <label for="typeADD">Tipo:</label>
+            <input type="text" id="typeADD" name="typeADD" placeholder="type">
+            <label for="valueADD">Valor:</label>
+            <input type="text" id="valueADD" name="valueADD" placeholder="value">
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <form action='{{ url_for("gerenciamento_remove")}}' method="post">
+            <label for="fnameRemove">Nome do instrumento:</label>
+            <input type="text" id="fnameRemove" name="fnameRemove" placeholder="firstname">
+            <label for="typeRemove">Tipo:</label>
+            <input type="text" id="typeRemove" name="typeRemove" placeholder="type">
+            <label for="valueRemove">Valor:</label>
+            <input type="text" id="valueRemove" name="valueRemove" placeholder="value">
+            <button type="submit">Remover</button>
+        </form>
+    </div>
+
+    <script src='{{ url_for("static", filename="js/app.js") }}'></script>
+    
+</body>
+
+<footer>
+
+</footer>
+
+</html>

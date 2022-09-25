@@ -10,48 +10,38 @@ def Create_Product(name ,type, value):
     dados = {'Nome':name,'Tipo': type,'Valor':value}
     request = requests.post(f'{db_link}/Produtos/.json', data=json.dumps(dados))
     print(request)
-    print(request.text)
+    return request
 
 #Get
 def Search_products():
-        
-        request = requests.get(f'{db_link}/Produtos/.json')
-        dic_request = request.json()
-        print(dic_request)
-        configs['Produtos'] = [dic_request]
-        with open("Products.json", "w") as json_file:
-                json.dump(configs,json_file,indent=6)
-
-        
+    request = requests.get(f'{db_link}/Produtos/.json')
+    dic_request = request.json()
+    return dic_request
+     
 #Delete
-def Delete_products(filter):
+def Delete_products(name, type ,value):
     request = requests.get(f'{db_link}/Produtos/.json')
     dic_request = request.json()
     for id in dic_request:
-        User = dic_request[id]['Nome']
-        if User == filter:
+        Nome = dic_request[id]['Nome']
+        Tipo = dic_request[id]['Tipo']
+        Valor = dic_request[id]['Valor']
+        print(name + "-" + type + "-" + value)
+        if Nome == name and Tipo == type and Valor == value:
             id_delete = id
             request = requests.delete(f'{db_link}/Produtos/{id_delete}/.json')
-        else:
-            print("Not found")
 
-  
+    print(request)
+    return request
 
 #Update
-def Update_products(filter):
+def Update_products(name):
     request = requests.get(f'{db_link}/Produtos/.json')
     dic_request = request.json()
     for id in dic_request:
         User = dic_request[id]['Nome']
-        if User == filter:
+        if User == name:
             id_delete = id
             request = requests.delete(f'{db_link}/Produtos/{id_delete}/.json')
         else:
             print("Not found")
-
-    
-    
-
-    
-
-        

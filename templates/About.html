@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre</title>
+
+    <link rel="stylesheet" href='{{ url_for("static", filename="css/style.css") }}'>
+
+    <script src="https://kit.fontawesome.com/259ef15be0.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-container">
+            <a href='{{ url_for("home") }}' id="logo">
+                <i class="fa-solid fa-music"> Like a Mozart</i>
+            </a>
+            <div class="navbar_toogle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href='{{ url_for("home") }}' class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href='{{ url_for("about") }}' class="navbar__links">About us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href='{{ url_for("products") }}' class="navbar__links">Produtos</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href='{{ url_for("login") }}' class="button">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main__text">
+        <img src="/Images/undraw_off_road_re_leme.svg" height="250" width="250">
+        <div class="main__text__content">
+            <h2>About Us:</h2>
+            <hr>
+            <p style="text-align:center">Like a Mozart foi criado pensando na dificuldade de se comprar instrumentos
+                musicais e equipamentos de estúdio e gravação de áudio profissionais no Brasil, pois além de
+                preços exorbitantes, a variedade é um fator decisivo na hora de comprar instrumentos. Portanto contamos
+                com uma equipe capacitada em identificar o melhor instrumento pelo melhor preço possível,
+                contanto com uma equipe técnica responsável pela avaliação inicial do instrumento, apontando os defeitos
+                para que nossos luthiers de plantão possa deixá-lo na melhor condição para que desde o
+                estudante até o profissional possa tirar o melhor som do instrumento.</p>
+            <p style="text-align:center">Por conta de grandes parcerias firmadas diretamente com os grandes fabricantes
+                de instrumentos nacionais, conseguimos proporcionar o melhor preço do mercado para garantir que a música
+                esteja presente em todos os lares brasileiros.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <script src='{{ url_for("static", filename="js/app.js") }}'></script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>
