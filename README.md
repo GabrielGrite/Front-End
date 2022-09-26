@@ -9,5 +9,5 @@
 ## Para executar o Flask
 
 ```
-$ https://github.com/GabrielGrite/Front-End.git && cd Front-End && python3 main.py
+$ git clone https://github.com/GabrielGrite/Front-End.git && cd Front-End && python3 main.py
 ```
