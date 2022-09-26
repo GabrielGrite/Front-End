@@ -2,9 +2,10 @@
 
 ## Dependencias
 
-- Python (versão 3 ou maior)
+- Git
+- Python (version 3 or higher)
 - Python Package Installer (pip)
-- Flask (pip install Flask)
+- Flask ($ pip install Flask)
 
 ## Para executar o Flask
 
