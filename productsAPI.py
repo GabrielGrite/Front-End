@@ -19,17 +19,16 @@ def Search_products():
     return dic_request
      
 #Delete
-def Delete_products(name, type ,value):
+def Delete_products(name):
     request = requests.get(f'{db_link}/Produtos/.json')
     dic_request = request.json()
     for id in dic_request:
         Nome = dic_request[id]['Nome']
-        Tipo = dic_request[id]['Tipo']
-        Valor = dic_request[id]['Valor']
-        print(name + "-" + type + "-" + value)
-        if Nome == name and Tipo == type and Valor == value:
+        if Nome == name:
             id_delete = id
             request = requests.delete(f'{db_link}/Produtos/{id_delete}/.json')
+        else:
+            print("Não Achou")
 
     print(request)
     return request

@@ -1,0 +1,48 @@
+.input-products{
+    padding: 2rem 1em;
+}
+
+.remove-products{
+    padding: 2rem 1em;
+}
+
+h2 {
+    font-size: 16px;
+    text-align: left;
+    vertical-align: middle;
+    color: rgb(19, 228, 141);
+    margin: 8px 0;
+}
+
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    margin: 8px 0;
+    background-color: #f1f1f1;
+  }
+
+  hr{
+    text-align: center;
+    margin: 10px 5px;
+    width: 99%;
+    border: 1px solid darkgray;
+  }
+
+  button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 8px 2px;
+    cursor: pointer;
+  }

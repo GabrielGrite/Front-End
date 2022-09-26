@@ -6,15 +6,12 @@
     <title>Gerenciamento</title>
 
     <link rel="stylesheet" href='{{ url_for("static", filename="css/style.css") }}'>
-    
+    <link rel="stylesheet" href='{{ url_for("static", filename="css/gerenciamento.css") }}'>
+
     <script src="https://kit.fontawesome.com/259ef15be0.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
-    {% if content != "" %}
-        <h3>{{ content }}</h3>
-    {% endif %}
 
     <div class="navbar">
         <div class="navbar-container">
@@ -44,24 +41,36 @@
     </div>
 
     <div class="input-products">
+        <h3>Preencha as informações para cadastrar um produto</h3>
         <form action='{{ url_for("gerenciamento_add")}}' method="post">
-            <label for="firstnameADD">Nome do instrumento:</label>
-            <input type="text" id="firstnameADD" name="fnameADD" placeholder="firstname">
-            <label for="typeADD">Tipo:</label>
-            <input type="text" id="typeADD" name="typeADD" placeholder="type">
-            <label for="valueADD">Valor:</label>
-            <input type="text" id="valueADD" name="valueADD" placeholder="value">
+            <h2>Nome do instrumento:</h2>
+            <input type="text" id="firstnameADD" name="fnameADD" placeholder="Nome do instrumento" required>
+            <h2>Tipo do instrumento:</h2>
+            <select name="typeADD" class="typeADD" title="typeADD">
+                <option value="Nothing" selected disabled hidden>Escolha um tipo para o produto</option>
+                <option value="Cordas">Cordas</option>
+                <option value="Sopro">Sopro</option>
+                <option value="Percussão">Percussão</option>                       
+            </select>
+            <h2>Valor do instrumento:</h2>
+            <input type="number" id="valueADD" name="valueADD" placeholder="Valor do instrumento" required>
             <button type="submit">Cadastrar</button>
         </form>
+    </div>
 
-        <form action='{{ url_for("gerenciamento_remove")}}' method="post">
-            <label for="fnameRemove">Nome do instrumento:</label>
-            <input type="text" id="fnameRemove" name="fnameRemove" placeholder="firstname">
-            <label for="typeRemove">Tipo:</label>
-            <input type="text" id="typeRemove" name="typeRemove" placeholder="type">
-            <label for="valueRemove">Valor:</label>
-            <input type="text" id="valueRemove" name="valueRemove" placeholder="value">
-            <button type="submit">Remover</button>
+    <hr>
+
+    <div class="remove-products">
+        <h3>Selecione um produto para remover</h3>
+        <form action='{{ url_for("gerenciamento_remove") }}' method="post">
+            <h2>Selecione o produto que deseja deletar</h2>
+            <select name="productsList" class="products_list" title="products_list">
+                <option value="Nothing" selected disabled hidden>Escolha um produto</option>
+                {% for dictionary in content %}
+                <option value="{{ content[dictionary]['Nome'] }}" >{{ content[dictionary]['Nome'] }}</option>
+                {% endfor %}                                             
+            </select>
+            <button type="submit">Confirmar</button>
         </form>
     </div>
 
@@ -69,8 +78,11 @@
     
 </body>
 
-<footer>
 
+<footer>
+    <div class="container">
+        <p>&copy;Like a Mozart</p>
+      </div>
 </footer>
 
 </html>

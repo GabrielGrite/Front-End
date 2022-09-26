@@ -188,11 +188,6 @@
     border: 1px solid darkgray;
   }
 
-  footer {
-    padding-top: 80px;
-    background-color: #3b3b3b;
-  }
-
   @media screen and (max-width: 720px) {
 
     .merchant__image img {

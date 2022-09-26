@@ -34,7 +34,8 @@ def products():
 @app.route("/gerenciamento")
 def gerenciamento():
     try:
-        return render_template('Gerenciamento.html' , title="Gerenciamento",content = "")
+        produtos = productsAPI.Search_products()
+        return render_template('Gerenciamento.html' , title="Gerenciamento",content=produtos)
     except Exception as e:
         return str(e)
 
@@ -59,23 +60,19 @@ def gerenciamento_add():
     except Exception as e:
         return str(e)
 
-@app.route("/gerenciamento", methods=['POST','GET'])
+
+@app.route("/gerenciamento", methods=['POST'])
 def gerenciamento_remove():
     try:
         if request.method == "POST":
-            # getting input with name = fname in HTML form
-            first_name = request.form.get("fnameRemove")
-            # getting input with name = lname in HTML form
-            type = request.form.get("typeRemove")
-            # getting input with name = lname in HTML form
-            value = request.form.get("valueRemove")
+            product = request.form.get("productsList")
+            print(product)
 
-            if first_name != "" and type != "" and value != "":
-                status = productsAPI.Delete_products(first_name,type,value)
-                if status.status_code == 200:
-                    status_msg = "Removido com sucesso"
-                else:
-                    status_msg = "Falha ao Remover"
+            status = productsAPI.Delete_products(product)
+            if status.status_code == 200:
+                status_msg = "Removido com sucesso"
+            else:
+                status_msg = "Falha ao Remover"
 
         return redirect(url_for('.gerenciamento'))
     except Exception as e:
@@ -91,7 +88,6 @@ def login():
 @app.route("/login", methods=['POST'])
 def login_post():
     try:
-
         if request.method == "POST":
             # getting input with name = fname in HTML form
             user = request.form.get("email")
@@ -99,7 +95,7 @@ def login_post():
             password = request.form.get("pass")
 
             if user != "" and password != "":
-                status = productsAPI.Delete_products(user,password)
+                status = userAPI.Search_user(user,password)
                 if status.status_code == 200:
                     status_msg = "Removido com sucesso"
                 else:
