@@ -16,10 +16,10 @@
 }
 
 .product-item {
-  background-color: #FFF;
+  background-color: #fff;
   padding: 5px 5px;
   border-radius: 10px;
-  box-shadow: .3px .3px #888888;
+  box-shadow: 0.3px 0.3px #888888;
 }
 
 .product-item img {

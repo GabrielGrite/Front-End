@@ -9,19 +9,16 @@ import { useEffect } from "react";
 import productService from "../../api/productService";
 
 const App = () => {
-
-
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route element={<HomePage/>} path="/" exact />
-        <Route element={<ProductsPage/>} path="products" exact />
-        <Route element={<AboutPage/>} path="about" exact />
+        <Route element={<HomePage />} path="/" exact />
+        <Route element={<ProductsPage />} path="products" exact />
+        <Route element={<AboutPage />} path="about" exact />
       </Routes>
     </BrowserRouter>
-
   );
-}
+};
 
 export default App;

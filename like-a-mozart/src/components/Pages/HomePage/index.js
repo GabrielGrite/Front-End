@@ -9,8 +9,8 @@ const HomePage = () => (
     <div className="main__container">
       <div className="main__content">
         <Slideshow>
-          <SlideBanner img={secondaryBanner} title="Destaques da semana"/>
-          <SlideBanner img={secondaryBanner} title="Destaques da semana"/>
+          <SlideBanner img={secondaryBanner} title="Destaques da semana" />
+          <SlideBanner img={secondaryBanner} title="Destaques da semana" />
         </Slideshow>
         <br />
         <hr />
