@@ -5,8 +5,12 @@ import HomePage from "../Pages/HomePage";
 import ProductsPage from "../Pages/ProductsPage";
 import AboutPage from "../Pages/AboutPage";
 import Navbar from "./Navbar";
+import { useEffect } from "react";
+import productService from "../../api/productService";
 
 const App = () => {
+
+
   return (
     <BrowserRouter>
       <Navbar/>
