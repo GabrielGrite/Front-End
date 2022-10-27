@@ -1,7 +1,6 @@
 import "./style.css";
-import placeholderImage from "../../../../images/secondary-banner-placeholder.jpg"
+import placeholderImage from "../../../../images/secondary-banner-placeholder.jpg";
 import { formatMoney } from "../../../../lib/money-utils";
-
 
 const ProductItem = ({ product }) => {
   const { name, type, value } = product;
@@ -9,10 +8,7 @@ const ProductItem = ({ product }) => {
   return (
     <div class="product-item">
       <div class="product-img">
-        <img
-          src={placeholderImage}
-          alt="product image"
-        />
+        <img src={placeholderImage} alt="product image" />
         <button type="button" class="add-to-cart-btn">
           <i class="fas fa-shopping-cart"></i>Add To Cart
         </button>

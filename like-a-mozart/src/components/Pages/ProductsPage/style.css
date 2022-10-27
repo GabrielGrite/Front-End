@@ -1,7 +1,7 @@
-.products{
+.products {
   padding: 2rem 1em;
 }
-.products h2{
+.products h2 {
   text-align: center;
   font-size: 2.2rem;
   text-transform: uppercase;
@@ -10,17 +10,17 @@
   margin-bottom: 1rem;
 }
 
-.products hr{
+.products hr {
   width: 25%;
   margin: 10px auto;
   text-align: center;
   border: 1px solid darkgray;
 }
 
-@media screen and (min-width: 720px){
-  .product-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 2rem;
+@media screen and (min-width: 720px) {
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
   }
 }

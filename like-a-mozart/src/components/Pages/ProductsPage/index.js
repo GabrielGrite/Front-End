@@ -12,7 +12,7 @@ const ProductsPage = () => {
       <div className="product-list">
         {products &&
           products.map((product, idx) => (
-            <ProductItem key={idx} product={product}/>
+            <ProductItem key={idx} product={product} />
           ))}
       </div>
     </div>
