@@ -2,29 +2,7 @@
   {
     "id": "72595d45-0824-474c-8084-fa14474d04bd",
     "name": "Violão",
-    "imgSrc": "https://cf.shopee.com.br/file/7b71ebbe112cfa18c4c3c4375a2cde32_tn",
-    "category": "Classic Guitar",
-    "price": 10
-  },
-  {
-    "id": "72595d45-0824-474c-8084-fa14474d04bd",
-    "name": "Violao Acustico Estudo Nylon N-14N Nat",
-    "imgSrc": "https://m.media-amazon.com/images/I/61YL-aZOZ-L._AC_UL320_.jpg",
-    "category": "Classic Guitar",
-    "price": 370.06
-  },
-  {
-    "id": "72595d45-0824-474c-8084-fa14474d04bd",
-    "name": "Violão Giannini GD1 EQ TDW Folk Aço Elétrico Afinador",
-    "imgSrc": "https://a-static.mlcdn.com.br/280x210/violao-giannini-gd1-eq-tdw-folk-aco-eletrico-afinador/carneiromusic/021350/cc4c367ca123b64ff79b10252bf7b053.jpg",
-    "category": "Classic Guitar",
-    "price": 10
-  },
-  {
-    "id": "72595d45-0824-474c-8084-fa14474d04bd",
-    "name": "bla",
-    "imgSrc": "https://a-static.mlcdn.com.br/280x210/kit-violao-giannini-n14-estudante-acustico-bk-capa-afinador-e-palhetas/djalvesinstrumentosmusicais2/1995958011p/87aac9bbc766ee54123a714b6f3c1ca7.jpeg",
-    "category": "Classic Guitar",
-    "price": 10
+    "type": "tipo",
+    "value": 10
   }
 ]
