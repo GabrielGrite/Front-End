@@ -4,9 +4,9 @@ const AboutPage = () => {
   return (
     <div>
       <h2>About Us:</h2>
-      <div class="About">
+      <div className="About">
         <img src={image} />
-        <div class="About_content">
+        <div className="About_content">
           <p>
             Like a Mozart foi criado pensando na dificuldade de se comprar
             instrumentos musicais e equipamentos de estúdio e gravação de áudio

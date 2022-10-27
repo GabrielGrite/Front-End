@@ -6,17 +6,17 @@ const ProductItem = ({ product }) => {
   const { name, type, value } = product;
 
   return (
-    <div class="product-item">
-      <div class="product-img">
+    <div className="product-item">
+      <div className="product-img">
         <img src={placeholderImage} alt="product image" />
-        <button type="button" class="add-to-cart-btn">
-          <i class="fas fa-shopping-cart"></i>Add To Cart
+        <button type="button" className="add-to-cart-btn">
+          <i className="fas fa-shopping-cart"></i>Add To Cart
         </button>
       </div>
-      <div class="product-content">
-        <h3 class="product-name">{name}</h3>
-        <span class="product-category">Tipo: {type}</span>
-        <p class="product-price">{formatMoney(value)}</p>
+      <div className="product-content">
+        <h3 className="product-name">{name}</h3>
+        <span className="product-category">Tipo: {type}</span>
+        <p className="product-price">{formatMoney(value)}</p>
       </div>
       <br />
     </div>

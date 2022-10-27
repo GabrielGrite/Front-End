@@ -43,7 +43,7 @@ const HomePage = () => (
       </div>
       <hr />
       <div className="merchant__image__container">
-        <div class="merchant__content">
+        <div className="merchant__content">
           <h2>Sua diversão é musica para nossos ouvidos.</h2>
           <hr />
           <p>

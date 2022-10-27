@@ -2,6 +2,7 @@
 
 # dependencies
 like-a-mozart/node_modules
+like-a-mozart/build
 /.pnp
 .pnp.js
 
