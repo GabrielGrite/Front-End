@@ -43,7 +43,7 @@ const Navbar = () => {
         <MobileMenu onClick={toggleMenu} />
         <NavbarMenu active={menuActive}>
           <NavbarItem>
-            <NavbarLink to="/">Home</NavbarLink>
+            <NavbarLink to="/home">Home</NavbarLink>
           </NavbarItem>
           <NavbarItem>
             <NavbarLink to="/about">About us</NavbarLink>
