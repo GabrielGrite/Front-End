@@ -1,4 +1,4 @@
-.About {
+.about {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-image: linear-gradient(rgb(255, 255, 255), rgb(182, 174, 174));
 }
 
-h2 {
+.container h2 {
   text-align: center;
   font-size: 2.2rem;
   text-transform: uppercase;
@@ -16,21 +16,21 @@ h2 {
   margin: 1rem 0;
 }
 
-.About img {
+.about img {
   float: left;
   padding-right: 50px;
   width: 400px;
   height: 400px;
 }
 
-.About_content p {
+.about_content p {
   font-size: 20px;
   text-align: left;
   vertical-align: middle;
 }
 
 @media screen and (max-width: 720px) {
-  .About img {
+  .about img {
     align-self: center;
     width: 45%;
     height: auto;
@@ -45,14 +45,14 @@ h2 {
     color: rgb(19, 228, 141);
   }
 
-  .About_content p {
+  .about_content p {
     grid-column: 1;
     font-size: 18px;
     text-align: center;
     margin: 16px 0;
   }
 
-  .About {
+  .about {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -60,7 +60,7 @@ h2 {
     z-index: 1;
   }
 
-  .About hr {
+  .about hr {
     margin: 10px auto;
     width: 75px;
     text-align: center;

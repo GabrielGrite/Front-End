@@ -1,8 +1,9 @@
 import "./style.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MusicIcon from "../../ui/MusicIcon";
 import { useState } from "react";
+import { ROUTES } from "../routes";
 
 const NavbarMenu = ({ active, ...props }) => (
   <ul className={`navbar__menu ${active ? "active" : ""}`} {...props} />
@@ -15,7 +16,7 @@ const NavbarLink = props => (
 );
 
 const NavbarButton = props => (
-  <li className="navbar__btn">
+  <li className="navbar__btn" {...props}>
     <a href="" className="button">
       {props.children}
     </a>
@@ -33,6 +34,12 @@ const MobileMenu = props => (
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => setMenuActive(it => !it);
+  const navigate = useNavigate();
+
+  const handleLoginClick = event => {
+    event.preventDefault();
+    navigate(ROUTES.login);
+  };
 
   return (
     <div className="navbar">
@@ -43,15 +50,15 @@ const Navbar = () => {
         <MobileMenu onClick={toggleMenu} />
         <NavbarMenu active={menuActive}>
           <NavbarItem>
-            <NavbarLink to="/home">Home</NavbarLink>
+            <NavbarLink to={ROUTES.home}>Home</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink to="/about">About us</NavbarLink>
+            <NavbarLink to={ROUTES.about}>About us</NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink to="/products">Produtos</NavbarLink>
+            <NavbarLink to={ROUTES.products}>Produtos</NavbarLink>
           </NavbarItem>
-          <NavbarButton>Cadastrar</NavbarButton>
+          <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
         </NavbarMenu>
       </div>
     </div>

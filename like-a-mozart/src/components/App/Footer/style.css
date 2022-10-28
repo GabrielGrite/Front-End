@@ -1,0 +1,13 @@
+footer {
+  background: #000;
+  height: 80px;
+  padding-bottom: 50px;
+}
+
+footer p {
+  color: #fff;
+  font-size: 14px;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 16px;
+}

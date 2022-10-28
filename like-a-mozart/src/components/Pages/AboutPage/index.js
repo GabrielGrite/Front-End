@@ -1,12 +1,13 @@
+import "./style.css";
 import image from "../../../images/undraw_off_road_re_leme.svg";
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="container">
       <h2>About Us:</h2>
-      <div className="About">
+      <div className="about">
         <img src={image} />
-        <div className="About_content">
+        <div className="about_content">
           <p>
             Like a Mozart foi criado pensando na dificuldade de se comprar
             instrumentos musicais e equipamentos de estúdio e gravação de áudio

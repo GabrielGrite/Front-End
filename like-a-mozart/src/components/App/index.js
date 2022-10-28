@@ -6,17 +6,20 @@ import ProductsPage from "../Pages/ProductsPage";
 import AboutPage from "../Pages/AboutPage";
 import LoginPage from "../Pages/LoginPage";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { ROUTES } from "./routes";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route element={<LoginPage />} path="/" exact />
-        <Route element={<HomePage />} path="/home" exact />
-        <Route element={<ProductsPage />} path="products" exact />
-        <Route element={<AboutPage />} path="about" exact />
+        <Route element={<HomePage />} path={ROUTES.home} exact />
+        <Route element={<LoginPage />} path={ROUTES.login} exact />
+        <Route element={<ProductsPage />} path={ROUTES.products} exact />
+        <Route element={<AboutPage />} path={ROUTES.about} exact />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
