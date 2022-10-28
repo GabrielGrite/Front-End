@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   const { fieldValue, handleChange, submit, errors } = useForm({
     initialValues: {},
-    onSubmit: () => navigate("/")
+    onSubmit: () => navigate("/"),
   });
 
   return (

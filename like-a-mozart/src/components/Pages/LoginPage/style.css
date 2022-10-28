@@ -37,95 +37,133 @@ FIX: React não gostou dessas fontes aqui, por isso está comentado
 } */
 
 .wrap-login100 a {
-font-family: Poppins-Regular;
-font-size: 14px;
-line-height: 1.7;
-color: #666666;
-margin: 0px;
-transition: all 0.4s;
--webkit-transition: all 0.4s;
--o-transition: all 0.4s;
--moz-transition: all 0.4s;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
 }
 
 .wrap-login100 a:focus {
-outline: none !important;
+  outline: none !important;
 }
 
 .wrap-login100 a:hover {
-text-decoration: none;
-color: #6675df;
+  text-decoration: none;
+  color: #6675df;
 }
 
-.wrap-login100 h1,h2,h3,h4,h5,h6 {
-margin: 0px;
+.wrap-login100 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 .wrap-login100 p {
-font-family: Poppins-Regular;
-font-size: 14px;
-line-height: 1.7;
-color: #666666;
-margin: 0px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
 }
 
-.wrap-login100 ul, li {
-margin: 0px;
-list-style-type: none;
+.wrap-login100 ul,
+li {
+  margin: 0px;
+  list-style-type: none;
 }
 
 .wrap-login100 input {
-outline: none;
-border: none;
+  outline: none;
+  border: none;
 }
 
 .wrap-login100 textarea {
-outline: none;
-border: none;
+  outline: none;
+  border: none;
 }
 
-.wrap-login100 textarea:focus, input:focus {
-border-color: transparent !important;
+.wrap-login100 textarea:focus,
+input:focus {
+  border-color: transparent !important;
 }
 
-.wrap-login100 input:focus::-webkit-input-placeholder { color:transparent; }
-.wrap-login100 input:focus:-moz-placeholder { color:transparent; }
-.wrap-login100 input:focus::-moz-placeholder { color:transparent; }
-.wrap-login100 input:focus:-ms-input-placeholder { color:transparent; }
+.wrap-login100 input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.wrap-login100 input:focus:-moz-placeholder {
+  color: transparent;
+}
+.wrap-login100 input:focus::-moz-placeholder {
+  color: transparent;
+}
+.wrap-login100 input:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-.wrap-login100 textarea:focus::-webkit-input-placeholder { color:transparent; }
-.wrap-login100 textarea:focus:-moz-placeholder { color:transparent; }
-.wrap-login100 textarea:focus::-moz-placeholder { color:transparent; }
-.wrap-login100 textarea:focus:-ms-input-placeholder { color:transparent; }
+.wrap-login100 textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.wrap-login100 textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+.wrap-login100 textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+.wrap-login100 textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-.wrap-login100 input::-webkit-input-placeholder { color: #999999;}
-.wrap-login100 input:-moz-placeholder { color: #999999;}
-.wrap-login100 input::-moz-placeholder { color: #999999;}
-.wrap-login100 input:-ms-input-placeholder { color: #999999;}
+.wrap-login100 input::-webkit-input-placeholder {
+  color: #999999;
+}
+.wrap-login100 input:-moz-placeholder {
+  color: #999999;
+}
+.wrap-login100 input::-moz-placeholder {
+  color: #999999;
+}
+.wrap-login100 input:-ms-input-placeholder {
+  color: #999999;
+}
 
-.wrap-login100 textarea::-webkit-input-placeholder { color: #999999;}
-.wrap-login100 textarea:-moz-placeholder { color: #999999;}
-.wrap-login100 textarea::-moz-placeholder { color: #999999;}
-.wrap-login100 textarea:-ms-input-placeholder { color: #999999;}
-
+.wrap-login100 textarea::-webkit-input-placeholder {
+  color: #999999;
+}
+.wrap-login100 textarea:-moz-placeholder {
+  color: #999999;
+}
+.wrap-login100 textarea::-moz-placeholder {
+  color: #999999;
+}
+.wrap-login100 textarea:-ms-input-placeholder {
+  color: #999999;
+}
 
 .wrap-login100 label {
-display: block;
-margin: 0;
+  display: block;
+  margin: 0;
 }
 
 /*---------------------------------------------*/
 .wrap-login100 button {
-outline: none !important;
-border: none;
+  outline: none !important;
+  border: none;
 }
 
 .wrap-login100 button:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .wrap-login100 iframe {
-border: none !important;
+  border: none !important;
 }
 
 .limiter {
@@ -134,7 +172,7 @@ border: none !important;
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -146,7 +184,6 @@ border: none !important;
   align-items: center;
   background: #f2f2f2;
 }
-
 
 .wrap-login100 {
   width: 100%;
@@ -160,7 +197,6 @@ border: none !important;
   flex-wrap: wrap;
   align-items: stretch;
   flex-direction: row-reverse;
-
 }
 
 /*==================================================================
@@ -183,10 +219,8 @@ border: none !important;
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
-
-
 
 /*==================================================================
 [ Form ]*/
@@ -208,8 +242,6 @@ border: none !important;
   line-height: 1.2;
   text-align: center;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Input ]*/
@@ -337,7 +369,6 @@ input.input100 {
   font-size: 13px;
 }
 
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -414,7 +445,6 @@ input.input100 {
     padding-top: 70px;
   }
 }
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
