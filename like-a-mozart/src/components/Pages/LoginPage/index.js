@@ -1,11 +1,14 @@
-import useForm from "../../../hooks/useForm";
+import useForm, { isValid } from "../../../hooks/useForm";
 import "./style.css";
-// import loginImage from "../../../images/login-image.jpg"
+import loginImage from "../../../images/placeholder.jpg";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const { fieldValue, handleChange, submit } = useForm({ 
+  const navigate = useNavigate();
+
+  const { fieldValue, handleChange, submit, errors } = useForm({
     initialValues: {},
-    onSubmit: console.log
+    onSubmit: () => navigate("/")
   });
 
   return (
@@ -53,10 +56,10 @@ const LoginPage = () => {
               </button>
             </div>
           </form>
-          {/* <div
-          className="login100-more"
-          style="background-image: url('Images/violoes\ Taylor-300s.jpg')"
-        ></div> */}
+          <div
+            className="login100-more"
+            style={{ backgroundImage: `url(${loginImage})` }}
+          ></div>
         </div>
       </div>
     </div>
