@@ -1,0 +1,30 @@
+import "./style.css";
+
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import ProductsPage from "../pages/ProductsPage";
+import AboutPage from "../pages/AboutPage";
+import LoginPage from "../pages/LoginPage";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { ROUTES } from "./routes";
+import TestPage from "../pages/TestPage";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route element={<HomePage />} path={ROUTES.home} exact />
+        <Route element={<LoginPage />} path={ROUTES.login} exact />
+        <Route element={<ProductsPage />} path={ROUTES.products} exact />
+        <Route element={<AboutPage />} path={ROUTES.about} exact />
+
+        <Route element={<TestPage />} path={"test"} exact />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
+};
+
+export default App;
