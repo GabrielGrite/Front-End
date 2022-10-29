@@ -152,7 +152,6 @@ input:focus {
   margin: 0;
 }
 
-
 /*---------------------------------------------*/
 .input-container button {
   outline: none !important;
@@ -262,7 +261,6 @@ input:focus {
   border-radius: 10px;
   margin-bottom: 10px;
   outline: none !important;
-
 }
 
 .input-container input {

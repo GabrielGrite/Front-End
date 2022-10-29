@@ -1,22 +1,16 @@
 import { useFormContext } from "../Form";
 import "./style.css";
 
-const InputText = ({
-  name,
-  type,
-  value,
-  error,
-  className,
-  ...props
-}) => {
+const InputText = ({ name, type, value, error, className, ...props }) => {
   const form = useFormContext();
 
-  const showError = form.touched[name] && form.errors[name]
-
+  const showError = form.touched[name] && form.errors[name];
 
   return (
     <div
-      className={`input-container validate-input ${showError ? "alert-validate" : ""}`}
+      className={`input-container validate-input ${
+        showError ? "alert-validate" : ""
+      }`}
       data-validate={form.errors[name]}
     >
       <input
@@ -33,6 +27,3 @@ const InputText = ({
 };
 
 export default InputText;
-
-
-

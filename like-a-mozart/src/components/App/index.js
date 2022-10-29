@@ -21,7 +21,6 @@ const App = () => {
         <Route element={<AboutPage />} path={ROUTES.about} exact />
 
         <Route element={<TestPage />} path={"test"} exact />
-
       </Routes>
       <Footer />
     </BrowserRouter>

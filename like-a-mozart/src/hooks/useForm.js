@@ -4,7 +4,7 @@ const initialState = {
   values: {},
   errors: {},
   touched: {},
-  valid: false
+  valid: false,
 };
 
 const useFormState = (state = {}) => {
@@ -12,7 +12,7 @@ const useFormState = (state = {}) => {
     values: state.values || initialState.values,
     errors: state.errors || initialState.errors,
     touched: state.touched || initialState.touched,
-    valid: initialState.valid
+    valid: initialState.valid,
   });
 
   const setFieldValue = (fieldName, value) =>
@@ -33,38 +33,37 @@ const useFormState = (state = {}) => {
       },
     }));
 
-  
-  const setFieldTouched = fieldName => 
+  const setFieldTouched = fieldName =>
     setFormState(previousState => ({
       ...previousState,
       touched: {
         ...previousState.touched,
-        [fieldName]: true
-      }
+        [fieldName]: true,
+      },
     }));
 
-  const setAllTouched = () => 
+  const setAllTouched = () =>
     setFormState(previousState => ({
       ...previousState,
-      touched: Object.keys(previousState.values)
-        .reduce((curr, acc) => ({...acc, [curr]: true}), {})
+      touched: Object.keys(previousState.values).reduce(
+        (curr, acc) => ({ ...acc, [curr]: true }),
+        {}
+      ),
     }));
 
-  const fieldValue = fieldName => formState.values[fieldName]
+  const fieldValue = fieldName => formState.values[fieldName];
 
-  const setErrors = errors => 
+  const setErrors = errors =>
     setFormState(previousState => ({
       ...previousState,
-      errors
-    }))
+      errors,
+    }));
 
-  
-  const setValid = isValid => 
+  const setValid = isValid =>
     setFormState(previousState => ({
       ...previousState,
-      valid: isValid
-    }))
-
+      valid: isValid,
+    }));
 
   return {
     valid: formState.valid,
@@ -77,21 +76,21 @@ const useFormState = (state = {}) => {
     setFieldTouched,
     setErrors,
     setAllTouched,
-    touched: formState.touched
+    touched: formState.touched,
   };
 };
 
-const useForm = ({ 
-  initialValues = {}, 
+const useForm = ({
+  initialValues = {},
   onSubmit = () => {},
-  validateSchema = {}
+  validateSchema = {},
 }) => {
   const form = useFormState({ values: initialValues });
 
   const handleChange = event => {
     const { name, value } = event.target;
     form.setFieldValue(name, value);
-  }
+  };
 
   const handleBlur = async event => {
     const isValid = await validateForm();
@@ -102,35 +101,36 @@ const useForm = ({
 
     const { name, value } = event.target;
     form.setFieldTouched(name, value);
-
-  }
+  };
 
   const validateForm = async () => {
     try {
       return await validateSchema.validate(form.values, { abortEarly: false });
     } catch (err) {
       form.setErrors(
-        err.inner.reduce((errors, invalidField) => ({
-          ...errors,
-          [invalidField.path]: invalidField.errors
-        }), {})
+        err.inner.reduce(
+          (errors, invalidField) => ({
+            ...errors,
+            [invalidField.path]: invalidField.errors,
+          }),
+          {}
+        )
       );
 
       return false;
     }
-  }
+  };
 
   const submit = async event => {
     event.preventDefault();
 
     form.setAllTouched();
 
-
     const isValid = await validateForm();
 
     if (isValid) {
-      form.setValid(true)
-      form.setErrors({})
+      form.setValid(true);
+      form.setErrors({});
       onSubmit(form.values);
     }
   };
@@ -142,7 +142,7 @@ const useForm = ({
     submit,
     values: form.values,
     errors: form.errors,
-    touched: form.touched
+    touched: form.touched,
   };
 };
 

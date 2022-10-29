@@ -1,13 +1,11 @@
 import InputText from "../../ui/InputText";
 
-
 const TestPage = () => (
   <>
     <form>
-     <InputText/>
-
+      <InputText />
     </form>
   </>
-)
+);
 
 export default TestPage;
