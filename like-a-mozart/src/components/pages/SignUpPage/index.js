@@ -12,9 +12,13 @@ import InputDate from "../../ui/InputDate";
 import InputTextMask from "../../ui/InputTextMask";
 import zipCodeService from "../../../api/zipCodeService";
 import { isEmpty } from "../../../lib/string-utils";
-import InputSelect from "../../ui/InputSelect";
+import BrazilStateSelector from "../../ui/BrazilStateSelector";
+import { notifySuccess } from "../../../lib/notification";
+import Checkbox from "../../ui/Checkbox";
 
-const Row = ({ children }) => <div className="flex-row">{children}</div>;
+const Row = ({ className, children }) => (
+  <div className={`flex-row ${className}`}>{children}</div>
+);
 
 const MainForm = ({ nextStep }) => {
   const form = useFormContext();
@@ -38,7 +42,7 @@ const MainForm = ({ nextStep }) => {
 
   return (
     <>
-      <span className="signup100-form-title p-b-43">Cadastrar</span>
+      <span className="signup100-form-title p-b-43">Cadastre-se</span>
       <InputText placeholder="Nome" name="name" />
       <InputText placeholder="Sobrenome" name="surname" />
       <InputDate placeholder="Data de nascimento" name="birthdate" />
@@ -77,7 +81,7 @@ const SecondStepForm = ({ previousStep }) => {
 
   return (
     <>
-      <span className="signup100-form-title p-b-43">Cadastrar</span>
+      <span className="signup100-form-title p-b-43">Cadastre-se</span>
       <InputTextMask name="phone" mask="99 9999 9999" placeholder="Telefone" />
       <Row className="flex-row">
         <InputTextMask
@@ -91,10 +95,11 @@ const SecondStepForm = ({ previousStep }) => {
       <InputText name="address" placeholder="Endereço" />
       <Row>
         <InputText name="city" placeholder="Cidade" />
-        <InputSelect type="select" name="state" placeholder="Estado" />
+        <BrazilStateSelector type="select" name="state" placeholder="Estado" />
       </Row>
       <InputText name="complement" placeholder="Complementento (opcional)" />
-      <Row>
+      <Checkbox name="receiveEmails">Desejo receber emails Like a Mozart?</Checkbox>
+      <Row className="mg-t-10">
         <Button onClick={previousStep}>Voltar</Button>
         <Button onClick={form.submit}>Finalizar cadastro</Button>
       </Row>
@@ -124,6 +129,7 @@ const SignUpPage = () => {
       state: "",
       city: "",
       complement: "",
+      receiveEmails: true
     },
     validateSchema: yup.object().shape({
       name: yup.string().required("Nome é obrigatório"),
@@ -131,7 +137,8 @@ const SignUpPage = () => {
       birthdate: yup
         .date()
         .max(new Date(), "Não pode ser uma data futura")
-        .required("Campo obrigatório"),
+        .required("Campo obrigatório")
+        .nullable(),
       email: yup
         .string()
         .email("Precisa ser um email válido: ex@abc.xyz")
@@ -151,8 +158,15 @@ const SignUpPage = () => {
       state: yup.string().required("Campo obrigatório"),
       city: yup.string().required("Campo obrigatório"),
       complement: yup.string(),
+      receiveEmails: yup.bool().required("Campo obrigatório")
     }),
-    onSubmit: () => navigate(ROUTES.home),
+    onSubmit: values => {
+      notifySuccess(`${values.name}, sua conta foi criada!`);
+
+      console.log(values)
+
+      navigate(ROUTES.home);
+    },
   });
 
   return (

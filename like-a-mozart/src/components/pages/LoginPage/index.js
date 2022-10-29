@@ -8,6 +8,7 @@ import InputText from "../../ui/InputText";
 import Button from "../../ui/Button";
 import * as yup from "yup";
 import Form from "../../ui/Form";
+import { notifySuccess } from "./../../../lib/notification";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -24,8 +25,17 @@ const LoginPage = () => {
         .required("Email é obrigatório"),
       password: yup.string().required("Senha é obrigatória"),
     }),
-    onSubmit: () => navigate(ROUTES.home),
+    onSubmit: () => {
+      notifySuccess("Seja bem vindo")
+      navigate(ROUTES.home)
+    },
   });
+
+
+  const navigateSignUp = event => {
+    event.preventDefault();
+    navigate(`/${ROUTES.signUp}`)
+  }
 
   return (
     <div className="limiter">
@@ -41,6 +51,11 @@ const LoginPage = () => {
               </div>
             </div>
             <Button onClick={form.submit}>Entrar</Button>
+            <div className="flex-sb-m w-full p-t-3 p-b-32">
+              <div>
+                <a onClick={navigateSignUp}>Ainda não tem uma conta? Crie uma</a>
+              </div>
+            </div>
           </Form>
           <div
             className="login100-more"

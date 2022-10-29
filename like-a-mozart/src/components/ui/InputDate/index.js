@@ -1,6 +1,5 @@
 import "./style.css";
 import { useFormContext } from "../Form";
-import InputText from "../InputText";
 
 const InputDate = ({ name, className, ...props }) => {
   const form = useFormContext();

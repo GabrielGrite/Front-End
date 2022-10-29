@@ -1,0 +1,9 @@
+.checkbox-label {
+  display: inline;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.checkbox-label input {
+  margin-right: 5px;
+}

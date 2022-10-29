@@ -104,6 +104,7 @@ const useForm = ({
 
   const handleChange = event => {
     const { name, value } = event.target;
+
     form.setFieldValue(name, value);
   };
 
