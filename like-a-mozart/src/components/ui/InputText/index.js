@@ -3,7 +3,6 @@ import "./style.css";
 
 const InputText = ({ name, type, value, error, className, ...props }) => {
   const form = useFormContext();
-
   const showError = form.touched[name] && form.errors[name];
 
   return (

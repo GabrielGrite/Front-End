@@ -43,13 +43,15 @@ const useFormState = (state = {}) => {
     }));
 
   const setAllTouched = () =>
-    setFormState(previousState => ({
-      ...previousState,
-      touched: Object.keys(previousState.values).reduce(
-        (curr, acc) => ({ ...acc, [curr]: true }),
-        {}
-      ),
-    }));
+    setFormState(previousState => {
+      return {
+        ...previousState,
+        touched: Object.keys(previousState.values).reduce(
+          (acc, curr) => ({ ...acc, [curr]: true }),
+          {}
+        ),
+      };
+    });
 
   const fieldValue = fieldName => formState.values[fieldName];
 
