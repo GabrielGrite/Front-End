@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { ROUTES } from "./routes";
 import TestPage from "../pages/TestPage";
+import SignUpPage from "../pages/SignUpPage";
 
 const App = () => {
   return (
@@ -17,9 +18,9 @@ const App = () => {
       <Routes>
         <Route element={<HomePage />} path={ROUTES.home} exact />
         <Route element={<LoginPage />} path={ROUTES.login} exact />
+        <Route element={<SignUpPage />} path={ROUTES.signUp} exact />
         <Route element={<ProductsPage />} path={ROUTES.products} exact />
         <Route element={<AboutPage />} path={ROUTES.about} exact />
-
         <Route element={<TestPage />} path={"test"} exact />
       </Routes>
       <Footer />

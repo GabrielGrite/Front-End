@@ -137,10 +137,17 @@ const useForm = ({
     }
   };
 
+  const handleFocus = event => {
+    form.setFieldError(event.target.name, null)
+  }
+
   return {
+    handleFocus,
     handleChange,
     handleBlur,
     fieldValue: form.fieldValue,
+    setFieldValue: form.setFieldValue,
+    setFieldError: form.setFieldError,
     submit,
     values: form.values,
     errors: form.errors,

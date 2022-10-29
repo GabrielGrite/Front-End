@@ -1,7 +1,11 @@
+import "./style.css"
+import DatePicker from "react-date-picker";
 import { useFormContext } from "../Form";
-import "./style.css";
+import InputText from "../InputText";
 
-const InputText = ({ name, type, value, error, className, ...props }) => {
+const InputDate = ({
+  name, className, ...props
+}) => {
   const form = useFormContext();
   const showError = form.touched[name] && form.errors[name];
 
@@ -14,16 +18,14 @@ const InputText = ({ name, type, value, error, className, ...props }) => {
     >
       <input
         className="input_100"
-        type={type || "text"}
+        type="date"
         name={name}
         value={form.fieldValue(name)}
         onChange={form.handleChange}
         onBlur={form.handleBlur}
-        onFocus={form.handleFocus}
         {...props}
       />
-    </div>
-  );
+    </div>  );
 };
 
-export default InputText;
+export default InputDate;
