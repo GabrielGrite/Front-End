@@ -1,3 +1,3 @@
 export const isEmpty = str => {
-  return (!str || str.length === 0 );
-}
+  return !str || str.length === 0;
+};

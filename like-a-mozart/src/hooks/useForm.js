@@ -54,14 +54,13 @@ const useFormState = (state = {}) => {
       };
     });
 
-
   const setTouched = fields =>
     setFormState(previousState => {
       return {
         ...previousState,
         touched: {
           ...previousState.touched,
-          ...fields.reduce((acc, curr) => ({ ...acc, [curr]: true }), {})
+          ...fields.reduce((acc, curr) => ({ ...acc, [curr]: true }), {}),
         },
       };
     });
@@ -141,13 +140,15 @@ const useForm = ({
     try {
       return await validateSchema.validate(form.values, { abortEarly: false });
     } catch (err) {
-      const filtered = map(prop("path"), err.inner).filter(it => fields.includes(it))
+      const filtered = map(prop("path"), err.inner).filter(it =>
+        fields.includes(it)
+      );
 
       if (isEmpty(filtered)) {
         return true;
       }
 
-      form.setTouched(fields)
+      form.setTouched(fields);
       form.setErrors(
         err.inner.reduce(
           (errors, invalidField) => ({
@@ -160,8 +161,7 @@ const useForm = ({
 
       return false;
     }
-  }
-
+  };
 
   const submit = async event => {
     event.preventDefault();
@@ -178,8 +178,8 @@ const useForm = ({
   };
 
   const handleFocus = event => {
-    form.setFieldError(event.target.name, null)
-  }
+    form.setFieldError(event.target.name, null);
+  };
 
   return {
     handleFocus,
@@ -193,7 +193,7 @@ const useForm = ({
     errors: form.errors,
     touched: form.touched,
     validatePartial,
-    setTouched: form.setTouched
+    setTouched: form.setTouched,
   };
 };
 

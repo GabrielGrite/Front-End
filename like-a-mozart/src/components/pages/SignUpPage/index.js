@@ -9,7 +9,6 @@ import * as yup from "yup";
 import Form, { useFormContext } from "../../ui/Form";
 import { useState } from "react";
 import InputDate from "../../ui/InputDate";
-import InputMask from "react-input-mask";
 import InputTextMask from "../../ui/InputTextMask";
 import zipCodeService from "../../../api/zipCodeService";
 import { isEmpty } from "../../../lib/string-utils";
@@ -17,19 +16,25 @@ import InputSelect from "../../ui/InputSelect";
 
 const Row = ({ children }) => <div className="flex-row">{children}</div>;
 
-const MainForm = ({ nextStep }) => { 
+const MainForm = ({ nextStep }) => {
   const form = useFormContext();
 
   const handleNextClick = async event => {
     event.preventDefault();
 
-    const isValid = await form.validatePartial( ["name", "surname", "email", "birthdate", "password", "confirmPassword"])
+    const isValid = await form.validatePartial([
+      "name",
+      "surname",
+      "email",
+      "birthdate",
+      "password",
+      "confirmPassword",
+    ]);
 
     if (isValid) {
       nextStep();
     }
-  }
-
+  };
 
   return (
     <>
@@ -47,8 +52,7 @@ const MainForm = ({ nextStep }) => {
       <Button onClick={handleNextClick}>Próximo</Button>
     </>
   );
-  
-}
+};
 
 const SecondStepForm = ({ previousStep }) => {
   const form = useFormContext();
@@ -132,7 +136,9 @@ const SignUpPage = () => {
         .string()
         .email("Precisa ser um email válido: ex@abc.xyz")
         .required("Email é obrigatório"),
-      password: yup.string().required("Senha é obrigatória")
+      password: yup
+        .string()
+        .required("Senha é obrigatória")
         .min(8, "Deve conter no mínimo 8 caracteres"),
       confirmPassword: yup
         .string()

@@ -1,10 +1,8 @@
-import "./style.css"
+import "./style.css";
 import { useFormContext } from "../Form";
 import InputText from "../InputText";
 
-const InputDate = ({
-  name, className, ...props
-}) => {
+const InputDate = ({ name, className, ...props }) => {
   const form = useFormContext();
   const showError = form.touched[name] && form.errors[name];
 
@@ -24,7 +22,8 @@ const InputDate = ({
         onBlur={form.handleBlur}
         {...props}
       />
-    </div>  );
+    </div>
+  );
 };
 
 export default InputDate;

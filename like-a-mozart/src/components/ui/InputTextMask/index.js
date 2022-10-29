@@ -28,21 +28,18 @@ const InputTextMask = ({
       onFocus={form.handleFocus}
       {...props}
     >
-      {(inputProps) => {
+      {inputProps => {
         return (
-        <div
-          className={`input-container validate-input ${
-            showError ? "alert-validate" : ""
-          } ${className}`}
-          data-validate={form.errors[name]}
-        >
-          <input
-            {...inputProps}
-            className="input_100"
-            type="text"
-          />
-        </div>
-      )}}
+          <div
+            className={`input-container validate-input ${
+              showError ? "alert-validate" : ""
+            } ${className}`}
+            data-validate={form.errors[name]}
+          >
+            <input {...inputProps} className="input_100" type="text" />
+          </div>
+        );
+      }}
     </InputMask>
   );
 };
