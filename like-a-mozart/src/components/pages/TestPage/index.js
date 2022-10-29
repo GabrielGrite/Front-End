@@ -4,7 +4,7 @@ import InputText from "../../ui/InputText";
 const TestPage = () => (
   <>
     <form>
-      <Checkbox/>
+      <Checkbox />
     </form>
   </>
 );

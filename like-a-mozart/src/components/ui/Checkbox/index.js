@@ -8,7 +8,7 @@ const Checkbox = ({ name, children, ...props }) => {
     const { name, checked } = event.target;
 
     form.setFieldValue(name, checked);
-  }
+  };
 
   return (
     <label className="checkbox-label">

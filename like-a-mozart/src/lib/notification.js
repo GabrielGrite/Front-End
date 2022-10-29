@@ -1,7 +1,7 @@
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-export const notifySuccess = message => 
+export const notifySuccess = message =>
   toast(message, {
     position: toast.POSITION.BOTTOM_RIGHT,
-    className: 'foo-bar'
-  })
+    className: "foo-bar",
+  });

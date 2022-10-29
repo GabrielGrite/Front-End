@@ -26,16 +26,15 @@ const LoginPage = () => {
       password: yup.string().required("Senha é obrigatória"),
     }),
     onSubmit: () => {
-      notifySuccess("Seja bem vindo")
-      navigate(ROUTES.home)
+      notifySuccess("Seja bem vindo");
+      navigate(ROUTES.home);
     },
   });
 
-
   const navigateSignUp = event => {
     event.preventDefault();
-    navigate(`/${ROUTES.signUp}`)
-  }
+    navigate(`/${ROUTES.signUp}`);
+  };
 
   return (
     <div className="limiter">
@@ -53,7 +52,9 @@ const LoginPage = () => {
             <Button onClick={form.submit}>Entrar</Button>
             <div className="flex-sb-m w-full p-t-3 p-b-32">
               <div>
-                <a onClick={navigateSignUp}>Ainda não tem uma conta? Crie uma</a>
+                <a onClick={navigateSignUp}>
+                  Ainda não tem uma conta? Crie uma
+                </a>
               </div>
             </div>
           </Form>

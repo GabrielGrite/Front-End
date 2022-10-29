@@ -3,9 +3,17 @@ import "./style.css";
 
 export const Option = ({ value, children }) => (
   <option value={value}>{children}</option>
-)
+);
 
-const InputSelect = ({ name, type, value, error, className, children, ...props }) => {
+const InputSelect = ({
+  name,
+  type,
+  value,
+  error,
+  className,
+  children,
+  ...props
+}) => {
   const form = useFormContext();
   const showError = form.touched[name] && form.errors[name];
 

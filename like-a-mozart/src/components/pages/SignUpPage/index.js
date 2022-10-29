@@ -98,7 +98,9 @@ const SecondStepForm = ({ previousStep }) => {
         <BrazilStateSelector type="select" name="state" placeholder="Estado" />
       </Row>
       <InputText name="complement" placeholder="Complementento (opcional)" />
-      <Checkbox name="receiveEmails">Desejo receber emails Like a Mozart?</Checkbox>
+      <Checkbox name="receiveEmails">
+        Desejo receber emails Like a Mozart?
+      </Checkbox>
       <Row className="mg-t-10">
         <Button onClick={previousStep}>Voltar</Button>
         <Button onClick={form.submit}>Finalizar cadastro</Button>
@@ -129,7 +131,7 @@ const SignUpPage = () => {
       state: "",
       city: "",
       complement: "",
-      receiveEmails: true
+      receiveEmails: true,
     },
     validateSchema: yup.object().shape({
       name: yup.string().required("Nome é obrigatório"),
@@ -158,12 +160,12 @@ const SignUpPage = () => {
       state: yup.string().required("Campo obrigatório"),
       city: yup.string().required("Campo obrigatório"),
       complement: yup.string(),
-      receiveEmails: yup.bool().required("Campo obrigatório")
+      receiveEmails: yup.bool().required("Campo obrigatório"),
     }),
     onSubmit: values => {
       notifySuccess(`${values.name}, sua conta foi criada!`);
 
-      console.log(values)
+      console.log(values);
 
       navigate(ROUTES.home);
     },
