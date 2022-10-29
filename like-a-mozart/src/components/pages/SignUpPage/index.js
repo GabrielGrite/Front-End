@@ -13,25 +13,42 @@ import InputMask from "react-input-mask";
 import InputTextMask from "../../ui/InputTextMask";
 import zipCodeService from "../../../api/zipCodeService";
 import { isEmpty } from "../../../lib/string-utils";
+import InputSelect from "../../ui/InputSelect";
 
 const Row = ({ children }) => <div className="flex-row">{children}</div>;
 
-const MainForm = ({ form, nextStep }) => (
-  <>
-    <span className="signup100-form-title p-b-43">Cadastrar</span>
-    <InputText placeholder="Nome" name="name" />
-    <InputText placeholder="Sobrenome" name="surname" />
-    <InputDate placeholder="Data de nascimento" name="birthdate" />
-    <InputText placeholder="Email" name="email" />
-    <InputText placeholder="Senha" name="password" type="password" />
-    <InputText
-      placeholder="Confirme sua senha"
-      name="confirmPassword"
-      type="password"
-    />
-    <Button onClick={nextStep}>Próximo</Button>
-  </>
-);
+const MainForm = ({ nextStep }) => { 
+  const form = useFormContext();
+
+  const handleNextClick = async event => {
+    event.preventDefault();
+
+    const isValid = await form.validatePartial( ["name", "surname", "email", "birthdate", "password", "confirmPassword"])
+
+    if (isValid) {
+      nextStep();
+    }
+  }
+
+
+  return (
+    <>
+      <span className="signup100-form-title p-b-43">Cadastrar</span>
+      <InputText placeholder="Nome" name="name" />
+      <InputText placeholder="Sobrenome" name="surname" />
+      <InputDate placeholder="Data de nascimento" name="birthdate" />
+      <InputText placeholder="Email" name="email" />
+      <InputText placeholder="Senha" name="password" type="password" />
+      <InputText
+        placeholder="Confirme sua senha"
+        name="confirmPassword"
+        type="password"
+      />
+      <Button onClick={handleNextClick}>Próximo</Button>
+    </>
+  );
+  
+}
 
 const SecondStepForm = ({ previousStep }) => {
   const form = useFormContext();
@@ -70,10 +87,13 @@ const SecondStepForm = ({ previousStep }) => {
       <InputText name="address" placeholder="Endereço" />
       <Row>
         <InputText name="city" placeholder="Cidade" />
-        <InputText name="state" placeholder="Estado" />
+        <InputSelect type="select" name="state" placeholder="Estado" />
       </Row>
       <InputText name="complement" placeholder="Complementento (opcional)" />
-      <Button onClick={previousStep}>Voltar</Button>
+      <Row>
+        <Button onClick={previousStep}>Voltar</Button>
+        <Button onClick={form.submit}>Finalizar cadastro</Button>
+      </Row>
     </>
   );
 };
@@ -89,7 +109,7 @@ const SignUpPage = () => {
     initialValues: {
       name: "",
       surname: "",
-      birthdate: "",
+      birthdate: null,
       email: "",
       password: "",
       confirmPassword: "",
@@ -106,16 +126,18 @@ const SignUpPage = () => {
       surname: yup.string().required("Sobrenome é obrigatório"),
       birthdate: yup
         .date()
-        .max(new Date(), "Não é possível incluir uma data futura")
+        .max(new Date(), "Não pode ser uma data futura")
         .required("Campo obrigatório"),
       email: yup
         .string()
         .email("Precisa ser um email válido: ex@abc.xyz")
         .required("Email é obrigatório"),
-      password: yup.string().required("Senha é obrigatória"),
+      password: yup.string().required("Senha é obrigatória")
+        .min(8, "Deve conter no mínimo 8 caracteres"),
       confirmPassword: yup
         .string()
-        .oneOf([yup.ref("password"), null], "Confirmação de senha inválida"),
+        .oneOf([yup.ref("password"), null], "Confirmação de senha inválida")
+        .required("Senha é obrigatória"),
       phone: yup.string().required("Campo obrigatório"),
       address: yup.string().required("Campo obrigatório"),
       zipCode: yup.string().required("CEP é obrigatório"),

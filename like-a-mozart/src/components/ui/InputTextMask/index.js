@@ -33,7 +33,7 @@ const InputTextMask = ({
         <div
           className={`input-container validate-input ${
             showError ? "alert-validate" : ""
-          }`}
+          } ${className}`}
           data-validate={form.errors[name]}
         >
           <input
