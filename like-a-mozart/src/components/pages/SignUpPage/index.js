@@ -139,7 +139,7 @@ const SignUpPage = () => {
       birthdate: yup
         .date()
         .max(new Date(), "Não pode ser uma data futura")
-        .required("Campo obrigatório")
+        .required("Data de nascimento é obrigatório")
         .nullable(),
       email: yup
         .string()

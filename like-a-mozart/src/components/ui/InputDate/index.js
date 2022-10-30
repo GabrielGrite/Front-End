@@ -1,9 +1,25 @@
 import "./style.css";
 import { useFormContext } from "../Form";
+import { useRef } from "react";
+import { isNil } from "ramda";
 
-const InputDate = ({ name, className, ...props }) => {
+const InputDate = ({ name, placeholder, className, ...props }) => {
   const form = useFormContext();
   const showError = form.touched[name] && form.errors[name];
+  const ref = useRef();
+
+  const handleFocus = event => {
+    ref.current.type = "date"
+    form.handleFocus(event);
+  }
+
+  const handleBlur = event => {
+    if (isNil(form.fieldValue(name))) {
+      ref.current.type = "text"
+    }
+
+    form.handleBlur(event);
+  }
 
   return (
     <div
@@ -14,12 +30,15 @@ const InputDate = ({ name, className, ...props }) => {
     >
       <input
         className="input_100"
-        type="date"
+        type="text"
+        placeholder={placeholder}
         name={name}
+        ref={ref}
         value={form.fieldValue(name)}
-        onChange={form.handleChange}
-        onBlur={form.handleBlur}
         {...props}
+        onChange={form.handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
       />
     </div>
   );
