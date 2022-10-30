@@ -70,11 +70,11 @@ const SecondStepForm = ({ previousStep }) => {
         .then(({ address, state, city, error }) => {
           if (error) {
             form.setFieldError("zipCode", ["CEP não encontrado"]);
+          } else {
+            form.setFieldValue("address", address);
+            form.setFieldValue("state", state);
+            form.setFieldValue("city", city);
           }
-
-          form.setFieldValue("address", address);
-          form.setFieldValue("state", state);
-          form.setFieldValue("city", city);
         });
     }
   };
@@ -153,12 +153,12 @@ const SignUpPage = () => {
         .string()
         .oneOf([yup.ref("password"), null], "Confirmação de senha inválida")
         .required("Senha é obrigatória"),
-      phone: yup.string().required("Campo obrigatório"),
-      address: yup.string().required("Campo obrigatório"),
+      phone: yup.string().required("Telefone é obrigatório"),
+      address: yup.string().required("Endereço é obrigatório"),
       zipCode: yup.string().required("CEP é obrigatório"),
-      number: yup.string().required("Campo obrigatório"),
-      state: yup.string().required("Campo obrigatório"),
-      city: yup.string().required("Campo obrigatório"),
+      number: yup.string().required("Número é obrigatório"),
+      state: yup.string().required("Estado é obrigatório"),
+      city: yup.string().required("Cidade é obrigatório"),
       complement: yup.string(),
       receiveEmails: yup.bool().required("Campo obrigatório"),
     }),
