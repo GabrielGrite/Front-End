@@ -48,7 +48,11 @@ const MainForm = ({ nextStep }) => {
       <InputText placeholder="Sobrenome" name="surname" />
       <Row>
         <InputDate placeholder="Data de nascimento" name="birthdate" />
-        <InputTextMask name="phone" mask="99 9999 9999" placeholder="Telefone" />
+        <InputTextMask
+          name="phone"
+          mask="99 9999 9999"
+          placeholder="Telefone"
+        />
       </Row>
       <InputText placeholder="Email" name="email" />
       <Row>

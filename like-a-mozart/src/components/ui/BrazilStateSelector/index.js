@@ -3,7 +3,9 @@ import InputSelect, { Option } from "../InputSelect";
 const BrazilStateSelector = props => {
   return (
     <InputSelect {...props}>
-      <option disabled={true} value="">{props.placeholder || ""}</option>
+      <option disabled={true} value="">
+        {props.placeholder || ""}
+      </option>
       <Option value="AC">Acre</Option>
       <Option value="AL">Alagoas</Option>
       <Option value="AP">Amapá</Option>

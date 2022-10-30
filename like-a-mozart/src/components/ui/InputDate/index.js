@@ -9,19 +9,19 @@ const InputDate = ({ name, placeholder, className, ...props }) => {
   const ref = useRef();
 
   const handleFocus = event => {
-    ref.current.type = "date"
+    ref.current.type = "date";
     form.handleFocus(event);
-  }
+  };
 
   const handleBlur = event => {
     if (isNil(form.fieldValue(name))) {
-      ref.current.type = "text"
+      ref.current.type = "text";
     }
 
     form.handleBlur(event);
-  }
+  };
 
-  const inputType = isNil(form.fieldValue(name)) ? "text" : "date"
+  const inputType = isNil(form.fieldValue(name)) ? "text" : "date";
 
   return (
     <div
