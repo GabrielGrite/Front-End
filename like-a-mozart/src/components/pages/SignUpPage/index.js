@@ -30,6 +30,7 @@ const MainForm = ({ nextStep }) => {
       "name",
       "surname",
       "email",
+      "phone",
       "birthdate",
       "password",
       "confirmPassword",
@@ -45,14 +46,19 @@ const MainForm = ({ nextStep }) => {
       <span className="signup100-form-title p-b-43">Cadastre-se</span>
       <InputText placeholder="Nome" name="name" />
       <InputText placeholder="Sobrenome" name="surname" />
-      <InputDate placeholder="Data de nascimento" name="birthdate" />
+      <Row>
+        <InputDate placeholder="Data de nascimento" name="birthdate" />
+        <InputTextMask name="phone" mask="99 9999 9999" placeholder="Telefone" />
+      </Row>
       <InputText placeholder="Email" name="email" />
-      <InputText placeholder="Senha" name="password" type="password" />
-      <InputText
-        placeholder="Confirme sua senha"
-        name="confirmPassword"
-        type="password"
-      />
+      <Row>
+        <InputText placeholder="Senha" name="password" type="password" />
+        <InputText
+          placeholder="Confirme sua senha"
+          name="confirmPassword"
+          type="password"
+        />
+      </Row>
       <Button onClick={handleNextClick}>Próximo</Button>
     </>
   );
@@ -81,8 +87,7 @@ const SecondStepForm = ({ previousStep }) => {
 
   return (
     <>
-      <span className="signup100-form-title p-b-43">Cadastre-se</span>
-      <InputTextMask name="phone" mask="99 9999 9999" placeholder="Telefone" />
+      <span className="signup100-form-title p-b-43">Cadastre seu endereço</span>
       <Row className="flex-row">
         <InputTextMask
           name="zipCode"

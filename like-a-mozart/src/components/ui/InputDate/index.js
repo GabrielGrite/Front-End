@@ -21,6 +21,8 @@ const InputDate = ({ name, placeholder, className, ...props }) => {
     form.handleBlur(event);
   }
 
+  const inputType = isNil(form.fieldValue(name)) ? "text" : "date"
+
   return (
     <div
       className={`input-container validate-input ${
@@ -30,7 +32,7 @@ const InputDate = ({ name, placeholder, className, ...props }) => {
     >
       <input
         className="input_100"
-        type="text"
+        type={inputType}
         placeholder={placeholder}
         name={name}
         ref={ref}
