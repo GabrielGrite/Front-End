@@ -1,9 +1,10 @@
+import Checkbox from "../../ui/Checkbox";
 import InputText from "../../ui/InputText";
 
 const TestPage = () => (
   <>
     <form>
-      <InputText />
+      <Checkbox />
     </form>
   </>
 );

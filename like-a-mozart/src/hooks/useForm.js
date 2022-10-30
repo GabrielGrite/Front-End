@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { pick, map, prop, isEmpty } from "ramda";
 
 const initialState = {
   values: {},
@@ -53,6 +54,17 @@ const useFormState = (state = {}) => {
       };
     });
 
+  const setTouched = fields =>
+    setFormState(previousState => {
+      return {
+        ...previousState,
+        touched: {
+          ...previousState.touched,
+          ...fields.reduce((acc, curr) => ({ ...acc, [curr]: true }), {}),
+        },
+      };
+    });
+
   const fieldValue = fieldName => formState.values[fieldName];
 
   const setErrors = errors =>
@@ -78,6 +90,7 @@ const useFormState = (state = {}) => {
     setFieldTouched,
     setErrors,
     setAllTouched,
+    setTouched,
     touched: formState.touched,
   };
 };
@@ -91,6 +104,7 @@ const useForm = ({
 
   const handleChange = event => {
     const { name, value } = event.target;
+
     form.setFieldValue(name, value);
   };
 
@@ -123,6 +137,33 @@ const useForm = ({
     }
   };
 
+  const validatePartial = async fields => {
+    try {
+      return await validateSchema.validate(form.values, { abortEarly: false });
+    } catch (err) {
+      const filtered = map(prop("path"), err.inner).filter(it =>
+        fields.includes(it)
+      );
+
+      if (isEmpty(filtered)) {
+        return true;
+      }
+
+      form.setTouched(fields);
+      form.setErrors(
+        err.inner.reduce(
+          (errors, invalidField) => ({
+            ...errors,
+            [invalidField.path]: invalidField.errors,
+          }),
+          {}
+        )
+      );
+
+      return false;
+    }
+  };
+
   const submit = async event => {
     event.preventDefault();
 
@@ -137,14 +178,23 @@ const useForm = ({
     }
   };
 
+  const handleFocus = event => {
+    form.setFieldError(event.target.name, null);
+  };
+
   return {
+    handleFocus,
     handleChange,
     handleBlur,
     fieldValue: form.fieldValue,
+    setFieldValue: form.setFieldValue,
+    setFieldError: form.setFieldError,
     submit,
     values: form.values,
     errors: form.errors,
     touched: form.touched,
+    validatePartial,
+    setTouched: form.setTouched,
   };
 };
 

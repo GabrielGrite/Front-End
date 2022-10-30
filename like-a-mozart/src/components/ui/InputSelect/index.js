@@ -1,29 +1,42 @@
 import { useFormContext } from "../Form";
 import "./style.css";
 
-const InputText = ({ name, type, value, error, className, ...props }) => {
+export const Option = ({ value, children }) => (
+  <option value={value}>{children}</option>
+);
+
+const InputSelect = ({
+  name,
+  type,
+  value,
+  error,
+  className,
+  children,
+  ...props
+}) => {
   const form = useFormContext();
   const showError = form.touched[name] && form.errors[name];
 
   return (
     <div
-      className={`input-container validate-input ${
+      className={`select-container validate-input ${
         showError ? "alert-validate" : ""
       }`}
       data-validate={form.errors[name]}
     >
-      <input
-        className="input_100"
-        type={type || "text"}
+      <select
+        className="input_select_100"
         name={name}
         value={form.fieldValue(name)}
         onChange={form.handleChange}
         onBlur={form.handleBlur}
         onFocus={form.handleFocus}
         {...props}
-      />
+      >
+        {children}
+      </select>
     </div>
   );
 };
 
-export default InputText;
+export default InputSelect;
