@@ -36,14 +36,13 @@ const Navbar = () => {
   const toggleMenu = () => setMenuActive(it => !it);
   const navigate = useNavigate();
 
-  const closeMenu = () => setMenuActive(false) 
+  const closeMenu = () => setMenuActive(false);
 
   const handleLoginClick = event => {
     event.preventDefault();
     closeMenu();
     navigate(ROUTES.login);
   };
-
 
   return (
     <div className="navbar">
@@ -54,13 +53,19 @@ const Navbar = () => {
         <MobileMenu onClick={toggleMenu} />
         <NavbarMenu active={menuActive}>
           <NavbarItem>
-            <NavbarLink to={ROUTES.home} onClick={closeMenu}>Home</NavbarLink>
+            <NavbarLink to={ROUTES.home} onClick={closeMenu}>
+              Home
+            </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink to={ROUTES.about} onClick={closeMenu}>About us</NavbarLink>
+            <NavbarLink to={ROUTES.about} onClick={closeMenu}>
+              About us
+            </NavbarLink>
           </NavbarItem>
           <NavbarItem>
-            <NavbarLink to={ROUTES.products} onClick={closeMenu}>Produtos</NavbarLink>
+            <NavbarLink to={ROUTES.products} onClick={closeMenu}>
+              Produtos
+            </NavbarLink>
           </NavbarItem>
           <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
         </NavbarMenu>

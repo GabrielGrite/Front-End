@@ -111,7 +111,9 @@ const SecondStepForm = ({ previousStep }) => {
         Desejo receber emails Like a Mozart?
       </Checkbox>
       <Row className="mg-t-10">
-        <Button className="mg-b-10" onClick={previousStep}>Voltar</Button>
+        <Button className="mg-b-10" onClick={previousStep}>
+          Voltar
+        </Button>
         <Button onClick={form.submit}>Finalizar cadastro</Button>
       </Row>
     </>
