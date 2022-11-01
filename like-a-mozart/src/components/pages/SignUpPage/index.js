@@ -192,10 +192,7 @@ const SignUpPage = () => {
               <SecondStepForm previousStep={previousStep} />
             )}
           </Form>
-          <div
-            className="signup100-more"
-            style={{ backgroundImage: `url(${loginImage})` }}
-          ></div>
+          <div className="signup100-more"></div>
         </div>
       </div>
     </div>
