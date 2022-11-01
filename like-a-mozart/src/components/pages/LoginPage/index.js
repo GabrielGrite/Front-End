@@ -58,10 +58,7 @@ const LoginPage = () => {
               </div>
             </div>
           </Form>
-          <div
-            className="login100-more"
-            style={{ backgroundImage: `url(${loginImage})` }}
-          ></div>
+          <div className="login100-more"></div>
         </div>
       </div>
     </div>

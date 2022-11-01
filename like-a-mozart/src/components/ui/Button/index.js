@@ -1,7 +1,7 @@
 import "./style.css";
 
-const Button = ({ ...props }) => (
-  <button className="form-button" {...props}>
+const Button = ({ className, ...props }) => (
+  <button className={`${className} form-button`} {...props}>
     {props.children}
   </button>
 );

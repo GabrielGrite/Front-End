@@ -111,7 +111,9 @@ const SecondStepForm = ({ previousStep }) => {
         Desejo receber emails Like a Mozart?
       </Checkbox>
       <Row className="mg-t-10">
-        <Button onClick={previousStep}>Voltar</Button>
+        <Button className="mg-b-10" onClick={previousStep}>
+          Voltar
+        </Button>
         <Button onClick={form.submit}>Finalizar cadastro</Button>
       </Row>
     </>
@@ -190,10 +192,7 @@ const SignUpPage = () => {
               <SecondStepForm previousStep={previousStep} />
             )}
           </Form>
-          <div
-            className="signup100-more"
-            style={{ backgroundImage: `url(${loginImage})` }}
-          ></div>
+          <div className="signup100-more"></div>
         </div>
       </div>
     </div>
