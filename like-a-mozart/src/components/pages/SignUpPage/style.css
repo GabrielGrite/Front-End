@@ -357,6 +357,12 @@ input.input100 {
   .signup100-more {
     display: none;
   }
+
+
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 576px) {
@@ -453,4 +459,8 @@ input.input100 {
 
 .mg-t-10 {
   margin-top: 10px;
+}
+
+.mg-b-10 {
+  margin-bottom: 10px;
 }
