@@ -1,41 +1,18 @@
-from flask import Flask , redirect , url_for , render_template, request
+from flask import Flask , redirect , url_for , render_template, request, make_response, jsonify
 import productsAPI
 import userAPI
 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-    return redirect(url_for('.home'))
-
-@app.route("/home")
-def home():
-    try:
-        return render_template('Home.html' , title="Bem vindo!")
-    except Exception as e:
-        return str(e)
-
-@app.route("/about")
-def about():
-    try:
-        return render_template('About.html' , title="About Us")
-    except Exception as e:
-        return str(e)
-
-@app.route("/products")
+@app.route("/products", methods=['GET'])
 def products():
     try:
         produtos = productsAPI.Search_products()
 
-        return render_template('Produtos.html' , title="Products", content=produtos)
-    except Exception as e:
-        return str(e)
-
-@app.route("/gerenciamento")
-def gerenciamento():
-    try:
-        produtos = productsAPI.Search_products()
-        return render_template('Gerenciamento.html' , title="Gerenciamento",content=produtos)
+        return make_response(
+            jsonify(produtos)
+        )
+            
     except Exception as e:
         return str(e)
 
@@ -51,12 +28,8 @@ def gerenciamento_add():
             value = request.form.get("valueADD")
             if first_name != "" and type != "" and value != "":
                 status = productsAPI.Create_Product(first_name,type,value)
-                if status.status_code == 200:
-                    status_msg = "Cadastrado com sucesso"
-                else:
-                    status_msg = "Falha ao cadastrar"
 
-        return redirect(url_for('.gerenciamento'))
+        return status.status_code
     except Exception as e:
         return str(e)
 
@@ -69,12 +42,8 @@ def gerenciamento_remove():
             print(product)
 
             status = productsAPI.Delete_products(product)
-            if status.status_code == 200:
-                status_msg = "Removido com sucesso"
-            else:
-                status_msg = "Falha ao Remover"
 
-        return redirect(url_for('.gerenciamento'))
+        return status.status_code
     except Exception as e:
         return str(e)
 
