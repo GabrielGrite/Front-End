@@ -1,42 +1,4 @@
-/*
-FIX: React não gostou dessas fontes aqui, por isso está comentado 
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-SemiBold;
-  src: url('../fonts/montserrat/Montserrat-SemiBold.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-Regular;
-  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
-} */
-
-.input-container a {
+.wrap-signup100 a {
   font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
@@ -48,16 +10,16 @@ FIX: React não gostou dessas fontes aqui, por isso está comentado
   -moz-transition: all 0.4s;
 }
 
-.input-container a:focus {
+.wrap-signup100 a:focus {
   outline: none !important;
 }
 
-.input-container a:hover {
+.wrap-signup100 a:hover {
   text-decoration: none;
   color: #6675df;
 }
 
-.input-container h1,
+.wrap-signup100 h1,
 h2,
 h3,
 h4,
@@ -66,7 +28,7 @@ h6 {
   margin: 0px;
 }
 
-.input-container p {
+.wrap-signup100 p {
   font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
@@ -74,95 +36,95 @@ h6 {
   margin: 0px;
 }
 
-.input-container ul,
+.wrap-signup100 ul,
 li {
   margin: 0px;
   list-style-type: none;
 }
 
-.input-container input {
+.wrap-signup100 input {
   outline: none;
   border: none;
 }
 
-.input-container textarea {
+.wrap-signup100 textarea {
   outline: none;
   border: none;
 }
 
-.input-container textarea:focus,
+.wrap-signup100 textarea:focus,
 input:focus {
   border-color: transparent !important;
 }
 
-.input-container input:focus::-webkit-input-placeholder {
+.wrap-signup100 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
-.input-container input:focus:-moz-placeholder {
+.wrap-signup100 input:focus:-moz-placeholder {
   color: transparent;
 }
-.input-container input:focus::-moz-placeholder {
+.wrap-signup100 input:focus::-moz-placeholder {
   color: transparent;
 }
-.input-container input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-.input-container textarea:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-.input-container textarea:focus:-moz-placeholder {
-  color: transparent;
-}
-.input-container textarea:focus::-moz-placeholder {
-  color: transparent;
-}
-.input-container textarea:focus:-ms-input-placeholder {
+.wrap-signup100 input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-.input-container input::-webkit-input-placeholder {
+.wrap-signup100 textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.wrap-signup100 textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+.wrap-signup100 textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+.wrap-signup100 textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.wrap-signup100 input::-webkit-input-placeholder {
   color: #999999;
 }
-.input-container input:-moz-placeholder {
+.wrap-signup100 input:-moz-placeholder {
   color: #999999;
 }
-.input-container input::-moz-placeholder {
+.wrap-signup100 input::-moz-placeholder {
   color: #999999;
 }
-.input-container input:-ms-input-placeholder {
+.wrap-signup100 input:-ms-input-placeholder {
   color: #999999;
 }
 
-.input-container textarea::-webkit-input-placeholder {
+.wrap-signup100 textarea::-webkit-input-placeholder {
   color: #999999;
 }
-.input-container textarea:-moz-placeholder {
+.wrap-signup100 textarea:-moz-placeholder {
   color: #999999;
 }
-.input-container textarea::-moz-placeholder {
+.wrap-signup100 textarea::-moz-placeholder {
   color: #999999;
 }
-.input-container textarea:-ms-input-placeholder {
+.wrap-signup100 textarea:-ms-input-placeholder {
   color: #999999;
 }
 
-.input-container label {
+.wrap-signup100 label {
   display: block;
   margin: 0;
 }
 
 /*---------------------------------------------*/
-.input-container button {
+.wrap-signup100 button {
   outline: none !important;
   border: none;
 }
 
-.input-container button:hover {
+.wrap-signup100 button:hover {
   cursor: pointer;
 }
 
-.input-container iframe {
+.wrap-signup100 iframe {
   border: none !important;
 }
 
@@ -171,7 +133,7 @@ input:focus {
   margin: 0 auto;
 }
 
-.container-login100 {
+.container-signup100 {
   width: 100%;
   min-height: 100vh;
   display: -webkit-box;
@@ -185,7 +147,13 @@ input:focus {
   background: #f2f2f2;
 }
 
-.input-container {
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.wrap-signup100 {
   width: 100%;
   background: #fff;
   overflow: hidden;
@@ -201,7 +169,7 @@ input:focus {
 
 /*==================================================================
 [ login more ]*/
-.login100-more {
+.signup100-more {
   width: calc(100% - 560px);
   background-repeat: no-repeat;
   background-size: cover;
@@ -210,7 +178,7 @@ input:focus {
   z-index: 1;
 }
 
-.login100-more::before {
+.signup100-more::before {
   content: "";
   display: block;
   position: absolute;
@@ -225,7 +193,7 @@ input:focus {
 /*==================================================================
 [ Form ]*/
 
-.login100-form {
+.signup100-form {
   width: 560px;
   min-height: 100vh;
   display: block;
@@ -233,7 +201,7 @@ input:focus {
   padding: 173px 55px 55px 55px;
 }
 
-.login100-form-title {
+.signup100-form-title {
   width: 100%;
   display: block;
   font-family: Poppins-Regular;
@@ -246,7 +214,7 @@ input:focus {
 /*------------------------------------------------------------------
 [ Input ]*/
 
-.input-container {
+.wrap-input100 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -260,15 +228,9 @@ input:focus {
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   margin-bottom: 10px;
-  outline: none !important;
 }
 
-.input-container input {
-  outline: none;
-  border: none;
-}
-
-.label-input_100 {
+.label-input100 {
   font-family: Montserrat-Regular;
   font-size: 18px;
   color: #999999;
@@ -288,7 +250,7 @@ input:focus {
   transition: all 0.4s;
 }
 
-.input_100 {
+.input100 {
   display: block;
   width: 100%;
   background: transparent;
@@ -299,7 +261,7 @@ input:focus {
   padding: 0 26px;
 }
 
-input.input_100 {
+input.input100 {
   height: 100%;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -309,7 +271,7 @@ input.input_100 {
 
 /*---------------------------------------------*/
 
-.focus-input_100 {
+.focus-input100 {
   position: absolute;
   display: block;
   width: calc(100% + 2px);
@@ -335,7 +297,7 @@ input.input_100 {
   transform: scaleX(1.1) scaleY(1.3);
 }
 
-.input_100:focus + .focus-input_100 {
+.input100:focus + .focus-input100 {
   visibility: visible;
   opacity: 1;
 
@@ -357,11 +319,11 @@ input.input_100 {
   transform: scale(1);
 }
 
-.input_100:focus {
+.input100:focus {
   height: 48px;
 }
 
-.input_100:focus + .focus-input_100 + .label-input_100 {
+.input100:focus + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
 }
@@ -370,9 +332,44 @@ input.input_100 {
   height: 48px !important;
 }
 
-.has-val + .focus-input_100 + .label-input_100 {
+.has-val + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
+}
+
+@media (max-width: 992px) {
+  .signup100-form {
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .signup100-more {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .signup100-form {
+    width: 100%;
+  }
+
+  .signup100-more {
+    display: none;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .signup100-form {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 70px;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -446,7 +443,7 @@ input.input_100 {
 
 /*==================================================================
 [ Social ]*/
-.login100-form-social-item {
+.signup100-form-social-item {
   width: 36px;
   height: 36px;
   font-size: 18px;
@@ -454,7 +451,15 @@ input.input_100 {
   border-radius: 50%;
 }
 
-.login100-form-social-item:hover {
+.signup100-form-social-item:hover {
   background: #333333;
   color: #fff;
+}
+
+.mg-t-10 {
+  margin-top: 10px;
+}
+
+.mg-b-10 {
+  margin-bottom: 10px;
 }
