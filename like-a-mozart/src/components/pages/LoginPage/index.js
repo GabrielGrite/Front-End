@@ -8,10 +8,28 @@ import InputText from "../../ui/InputText";
 import Button from "../../ui/Button";
 import * as yup from "yup";
 import Form from "../../ui/Form";
-import { notifySuccess } from "./../../../lib/notification";
+import { notifyError, notifySuccess, notifyUnexpectedError } from "./../../../lib/notification";
+import api from "../../../api/api";
+import { storeAuthenticatedUser } from "../../../api/localStorage";
+import { useAuthContext } from "../../App/AuthProvider";
 
 const LoginPage = () => {
+  const { setAuthenticated } = useAuthContext()
   const navigate = useNavigate();
+  
+  const handleLogin = ({ email, password }) => {
+    api.login(email, password).then(authenticatedUser => {
+      setAuthenticated(authenticatedUser)
+      notifySuccess(`${authenticatedUser.name}, seja bem vindo!`);
+      navigate(ROUTES.home);
+    }, error => {
+      if (error.status == 401) {
+        notifyError("Senha incorreta")
+      } else {
+        notifyUnexpectedError()
+      }
+    })
+  }
 
   const form = useForm({
     initialValues: {
@@ -25,10 +43,7 @@ const LoginPage = () => {
         .required("Email é obrigatório"),
       password: yup.string().required("Senha é obrigatória"),
     }),
-    onSubmit: () => {
-      notifySuccess("Seja bem vindo");
-      navigate(ROUTES.home);
-    },
+    onSubmit: handleLogin,
   });
 
   const navigateSignUp = event => {
