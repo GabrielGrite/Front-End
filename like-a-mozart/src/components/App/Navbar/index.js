@@ -52,7 +52,7 @@ const Navbar = () => {
     closeMenu();
     logout();
     navigate(ROUTES.home);
-    notifySuccess(` ${authenticatedUser.name}`);
+    notifySuccess(`Sessão encerrada, ${authenticatedUser.name}.`);
   }
 
   return (
