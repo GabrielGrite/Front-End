@@ -11,13 +11,13 @@ import { ROUTES } from "./routes";
 import SignUpPage from "../pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AuthProvider from "./AuthProvider";
+import AuthenticationProvider from "./AuthenticationProvider";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-      <AuthProvider>
+      <AuthenticationProvider>
         <Navbar />
         <ToastContainer />
           <Routes>
@@ -28,7 +28,7 @@ const App = () => {
             <Route element={<AboutPage />} path={ROUTES.about} exact />
           </Routes>
         <Footer />
-        </AuthProvider>
+        </AuthenticationProvider>
       </BrowserRouter>
     </>
   );

@@ -5,7 +5,7 @@ import MusicIcon from "../../ui/MusicIcon";
 import { useState } from "react";
 import { ROUTES } from "../routes";
 import { notifySuccess } from "../../../lib/notification";
-import { useAuthContext } from "../AuthProvider";
+import { useAuthContext } from "../AuthenticationProvider";
 
 const NavbarMenu = ({ active, ...props }) => (
   <ul className={`navbar__menu ${active ? "active" : ""}`} {...props} />

@@ -5,5 +5,5 @@ const api = webClient => ({
   signup: user => webClient.post("/users", user)
 })
 
-export default api(createWebClient({ baseUrl: "http://localhost:3000" }))
+export default api(createWebClient({ baseUrl: process.env.REACT_APP_LIKE_A_MOZART_API_BASE_URL }))
 

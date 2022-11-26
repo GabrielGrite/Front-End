@@ -11,7 +11,7 @@ import Form from "../../ui/Form";
 import { notifyError, notifySuccess, notifyUnexpectedError } from "./../../../lib/notification";
 import api from "../../../api/api";
 import { storeAuthenticatedUser } from "../../../api/localStorage";
-import { useAuthContext } from "../../App/AuthProvider";
+import { useAuthContext } from "../../App/AuthenticationProvider";
 
 const LoginPage = () => {
   const { setAuthenticated } = useAuthContext()
