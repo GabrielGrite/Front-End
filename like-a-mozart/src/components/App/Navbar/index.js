@@ -34,7 +34,7 @@ const MobileMenu = props => (
 );
 
 const Navbar = () => {
-  const { authenticated, authenticatedUser, logout } = useAuthContext()
+  const { authenticated, authenticatedUser, logout } = useAuthContext();
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => setMenuActive(it => !it);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const Navbar = () => {
     logout();
     navigate(ROUTES.home);
     notifySuccess(`Sessão encerrada, ${authenticatedUser.name}.`);
-  }
+  };
 
   return (
     <div className="navbar">
@@ -78,21 +78,18 @@ const Navbar = () => {
               Produtos
             </NavbarLink>
           </NavbarItem>
-          {
-            authenticated ? (
-              <>
-                {/* <NavbarItem>
+          {authenticated ? (
+            <>
+              {/* <NavbarItem>
                   <NavbarLink to={ROUTES.profile} onClick={closeMenu}>
                     Minha conta
                   </NavbarLink>
                 </NavbarItem> */}
-                <NavbarButton onClick={handleLogoutClick}>Logout</NavbarButton>
-              </>
-            ) : (
-              <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
-            )
-          }
-
+              <NavbarButton onClick={handleLogoutClick}>Logout</NavbarButton>
+            </>
+          ) : (
+            <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
+          )}
         </NavbarMenu>
       </div>
     </div>

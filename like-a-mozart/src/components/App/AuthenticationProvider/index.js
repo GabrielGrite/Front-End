@@ -1,45 +1,53 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { getAuthenticatedUser, removeAuthenticatedUser, storeAuthenticatedUser } from "../../../api/localStorage"
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  getAuthenticatedUser,
+  removeAuthenticatedUser,
+  storeAuthenticatedUser,
+} from "../../../api/localStorage";
 
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
 export const useAuthContext = () => {
-  return useContext(AuthContext)
-}
+  return useContext(AuthContext);
+};
 
 const useAuthProvider = () => {
-  const [authenticatedUser, setAuthenticatedUser] = useState(null)
+  const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
   const setAuthenticated = user => {
-    storeAuthenticatedUser(user)
-    setAuthenticatedUser(user)
-  }
+    storeAuthenticatedUser(user);
+    setAuthenticatedUser(user);
+  };
 
   const logout = () => {
-    removeAuthenticatedUser()
-    setAuthenticatedUser(null)
-  }
+    removeAuthenticatedUser();
+    setAuthenticatedUser(null);
+  };
 
   useEffect(() => {
     const user = getAuthenticatedUser();
 
     if (user) {
-      setAuthenticated(user)
+      setAuthenticated(user);
     }
-  }, [])
+  }, []);
 
-
-  return { authenticated: !!authenticatedUser, authenticatedUser, logout, setAuthenticated  }
-}
+  return {
+    authenticated: !!authenticatedUser,
+    authenticatedUser,
+    logout,
+    setAuthenticated,
+  };
+};
 
 const AuthProvider = ({ children }) => {
-  const userAuthentication = useAuthProvider()
+  const userAuthentication = useAuthProvider();
 
   return (
     <AuthContext.Provider value={userAuthentication}>
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
-export default AuthProvider
+export default AuthProvider;

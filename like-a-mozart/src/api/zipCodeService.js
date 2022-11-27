@@ -21,4 +21,6 @@ const zipCodeService = ({ baseUrl }) => {
   return { resolve };
 };
 
-export default zipCodeService({ baseUrl: process.env.REACT_APP_ZIP_CODE_API_BASE_URL });
+export default zipCodeService({
+  baseUrl: process.env.REACT_APP_ZIP_CODE_API_BASE_URL,
+});

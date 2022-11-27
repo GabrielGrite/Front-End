@@ -13,7 +13,11 @@ import InputTextMask from "../../ui/InputTextMask";
 import zipCodeService from "../../../api/zipCodeService";
 import { isEmpty } from "../../../lib/string-utils";
 import BrazilStateSelector from "../../ui/BrazilStateSelector";
-import { notifyError, notifySuccess, notifyUnexpectedError } from "../../../lib/notification";
+import {
+  notifyError,
+  notifySuccess,
+  notifyUnexpectedError,
+} from "../../../lib/notification";
 import Checkbox from "../../ui/Checkbox";
 import api from "../../../api/api";
 
@@ -105,9 +109,16 @@ const SecondStepForm = ({ previousStep }) => {
       <InputText name="addressStreet" placeholder="Endereço" />
       <Row>
         <InputText name="addressCity" placeholder="Cidade" />
-        <BrazilStateSelector type="select" name="addressState" placeholder="Estado" />
+        <BrazilStateSelector
+          type="select"
+          name="addressState"
+          placeholder="Estado"
+        />
       </Row>
-      <InputText name="addressComplement" placeholder="Complementento (opcional)" />
+      <InputText
+        name="addressComplement"
+        placeholder="Complementento (opcional)"
+      />
       <Checkbox name="receiveEmails">
         Desejo receber emails Like a Mozart?
       </Checkbox>
@@ -129,17 +140,22 @@ const SignUpPage = () => {
   const previousStep = () => setCurrentStep(0);
 
   const handleSignup = formValues => {
-    api.signup(formValues).then(user => {
-      notifySuccess(`${user.name}, sua conta foi criada!`);
-      navigate(`/${ROUTES.login}`);
-    }, err => {
-      if (err.status == 422) {
-        notifyError("Verifique se todos os campos foram preenchidos e tente novamente")
-      } else {
-        notifyUnexpectedError()
+    api.signup(formValues).then(
+      user => {
+        notifySuccess(`${user.name}, sua conta foi criada!`);
+        navigate(`/${ROUTES.login}`);
+      },
+      err => {
+        if (err.status == 422) {
+          notifyError(
+            "Verifique se todos os campos foram preenchidos e tente novamente"
+          );
+        } else {
+          notifyUnexpectedError();
+        }
       }
-    })
-  }
+    );
+  };
 
   const form = useForm({
     initialValues: {

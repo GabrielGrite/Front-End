@@ -17,9 +17,9 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-      <AuthenticationProvider>
-        <Navbar />
-        <ToastContainer />
+        <AuthenticationProvider>
+          <Navbar />
+          <ToastContainer />
           <Routes>
             <Route element={<HomePage />} path={ROUTES.home} exact />
             <Route element={<LoginPage />} path={ROUTES.login} exact />
@@ -27,7 +27,7 @@ const App = () => {
             <Route element={<ProductsPage />} path={ROUTES.products} exact />
             <Route element={<AboutPage />} path={ROUTES.about} exact />
           </Routes>
-        <Footer />
+          <Footer />
         </AuthenticationProvider>
       </BrowserRouter>
     </>

@@ -10,8 +10,8 @@ export const notifyError = message =>
   toast(message, {
     position: toast.POSITION.BOTTOM_RIGHT,
     className: "foo-bar",
-    type: "error"
+    type: "error",
   });
 
-
-export const notifyUnexpectedError = () => notifyError("Um error inesperado ocorreu")
+export const notifyUnexpectedError = () =>
+  notifyError("Um error inesperado ocorreu");
