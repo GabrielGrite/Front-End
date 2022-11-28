@@ -13,7 +13,7 @@ const useProducts = () => {
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState(initialFilters);
-  const { page, size } = usePaginator();
+  const { page, size } = usePaginator(1, 100);
 
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);

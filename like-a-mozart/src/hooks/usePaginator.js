@@ -1,13 +1,8 @@
 import { useState } from "react";
 
-const DEFAULT_VALUES = {
-  initialPage: 1,
-  initialSize: 10,
-};
-
-const usePaginator = ({ initialPage, inititialSize } = DEFAULT_VALUES) => {
+const usePaginator = (initialPage, initialSize) => {
   const [currentPage, setCurrentPage] = useState(initialPage);
-  const [size, setSize] = useState(inititialSize);
+  const [size, setSize] = useState(initialSize);
 
   const next = () => setCurrentPage(prev => prev + 1);
   const previous = () => setCurrentPage(prev => prev - 1);
