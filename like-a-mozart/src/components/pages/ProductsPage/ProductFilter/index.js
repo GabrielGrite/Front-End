@@ -2,7 +2,6 @@ import "./style.css";
 
 import useForm from "../../../../hooks/useForm";
 import Form from "../../../ui/Form";
-import Checkbox from "../../../ui/Checkbox";
 import Button from "../../../ui/SubmitButton";
 import { CheckGroup, CheckOption } from "../../../ui/CheckGroup";
 import * as yup from "yup";
@@ -61,7 +60,7 @@ const ProductFilter = ({
               ))}
             </CheckGroup>
             <CheckGroup name="brand">
-              <FilterTitle>Marcas</FilterTitle>
+              <FilterTitle>Marca</FilterTitle>
               {brands.map(({ slug, name }) => (
                 <CheckOption key={slug} name={slug}>
                   {name}
