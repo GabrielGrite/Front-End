@@ -9,23 +9,28 @@ import * as yup from "yup";
 import Paper from "../../../ui/Paper";
 
 const FilterTitle = ({ children }) => (
-<h3
-  style={{
-    fontSize: "20px",
-    marginTop: "10px",
-    marginBottom: "3px",
-    color: "#1a1a1a",
-    fontWeight: 500,
-  }}>{children}</h3>
-) 
+  <h3
+    style={{
+      fontSize: "20px",
+      marginTop: "10px",
+      marginBottom: "3px",
+      color: "#1a1a1a",
+      fontWeight: 500,
+    }}
+  >
+    {children}
+  </h3>
+);
 
 const FilterContainer = ({ children }) => (
   <div
     style={{
       width: "200px",
-      marginBottom: "10px"
+      marginBottom: "10px",
     }}
-  >{children}</div>
+  >
+    {children}
+  </div>
 );
 
 const ProductFilter = ({

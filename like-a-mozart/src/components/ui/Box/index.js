@@ -3,11 +3,11 @@ const Box = ({ children }) => (
     style={{
       display: "flex",
       flexFlow: "column",
-      height: "100%"
+      height: "100%",
     }}
   >
     {children}
   </section>
-)
+);
 
-export default Box
+export default Box;

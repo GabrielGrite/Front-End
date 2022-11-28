@@ -13,19 +13,18 @@ const getResponseError = async res => {
 };
 
 const buildQueryParams = params => {
-  let urlSearchParams = new URLSearchParams()
+  let urlSearchParams = new URLSearchParams();
 
-  Object.entries(params)
-    .forEach(([key, value]) => {
-      if (is(Array, value)) {
-        value.forEach(it => urlSearchParams.append(`${key}[]`, it))
-      } else {
-        urlSearchParams.append(key, value)
-      }
-    })
+  Object.entries(params).forEach(([key, value]) => {
+    if (is(Array, value)) {
+      value.forEach(it => urlSearchParams.append(`${key}[]`, it));
+    } else {
+      urlSearchParams.append(key, value);
+    }
+  });
 
   return urlSearchParams;
-}
+};
 
 export const createWebClient = ({
   baseUrl,
@@ -51,10 +50,13 @@ export const createWebClient = ({
   };
 
   const get = async (uri, queryParams = {}) => {
-    const response = await fetch(`${baseUrl}${uri}?${buildQueryParams(queryParams)}`, {
-      method: "GET",
-      headers: { ...defaultHeaders },
-    });
+    const response = await fetch(
+      `${baseUrl}${uri}?${buildQueryParams(queryParams)}`,
+      {
+        method: "GET",
+        headers: { ...defaultHeaders },
+      }
+    );
 
     if (response.ok) {
       return await response.json();
@@ -66,10 +68,10 @@ export const createWebClient = ({
       status: response.status,
       responseBody,
     };
-  }
+  };
 
   return {
     post,
-    get
+    get,
   };
 };

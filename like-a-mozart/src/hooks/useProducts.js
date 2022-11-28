@@ -1,13 +1,12 @@
 import { merge, mergeRight, pick, reduce } from "ramda";
 import { useEffect, useState } from "react";
 import api from "../api/api";
-import productService from "../api/productService";
 import { notifyUnexpectedError } from "../lib/notification";
 import usePaginator from "./usePaginator";
 
 const initialFilters = {
-  family: "string"
-}
+  family: "string",
+};
 
 const useProducts = () => {
   const [loading, setLoading] = useState(false);
@@ -16,42 +15,42 @@ const useProducts = () => {
   const [filters, setFilters] = useState(initialFilters);
   const { page, size } = usePaginator();
 
-  const [categories, setCategories] = useState([])
-  const [brands, setBrands] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
     Promise.all([api.findBrands(), api.findCategories()])
       .then(reduce(mergeRight, {}))
       .then(res => {
-        setCategories(res.categories)
-        setBrands(res.brands)
+        setCategories(res.categories);
+        setBrands(res.brands);
       })
       .catch(err => {
-        notifyUnexpectedError()
-      })
-  }, [])
-
+        notifyUnexpectedError();
+      });
+  }, []);
 
   useEffect(() => {
-    api.findProducts(filters, page, size)
+    api
+      .findProducts(filters, page, size)
       .then(res => {
         setProducts(res.products);
         setLoading(false);
       })
       .catch(ex => {
-        console.log(ex)
+        console.log(ex);
         setError(true);
       });
   }, [filters, page, size]);
 
   return {
-     loading, 
-     error, 
-     products, 
-     setFilters, 
-     categories, 
-     brands 
-    };
+    loading,
+    error,
+    products,
+    setFilters,
+    categories,
+    brands,
+  };
 };
 
 export default useProducts;

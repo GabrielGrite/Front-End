@@ -1,14 +1,13 @@
 const PageContainer = ({ children }) => (
-  <section 
+  <section
     style={{
       flex: "1 1 auto",
       display: "flex",
-      flexFlow: "column"
+      flexFlow: "column",
     }}
   >
     {children}
   </section>
-)
+);
 
-
-export default PageContainer
+export default PageContainer;
