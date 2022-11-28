@@ -12,10 +12,11 @@ import SignUpPage from "../pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthenticationProvider from "./AuthenticationProvider";
+import Box from "../ui/Box";
 
 const App = () => {
   return (
-    <>
+    <Box>
       <BrowserRouter>
         <AuthenticationProvider>
           <Navbar />
@@ -30,7 +31,7 @@ const App = () => {
           <Footer />
         </AuthenticationProvider>
       </BrowserRouter>
-    </>
+    </Box>
   );
 };
 

@@ -1,19 +1,11 @@
 .about {
   display: flex;
+  flex: 1 1 auto;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 0 50px 70px;
   background-image: linear-gradient(rgb(255, 255, 255), rgb(182, 174, 174));
-}
-
-.container h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgb(19, 228, 141);
-  margin: 1rem 0;
 }
 
 .about img {

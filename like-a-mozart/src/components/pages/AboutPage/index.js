@@ -1,10 +1,12 @@
 import "./style.css";
 import image from "../../../images/undraw_off_road_re_leme.svg";
+import Title from "../../ui/Title";
+import PageContainer from "../../ui/PageContainer";
 
 const AboutPage = () => {
   return (
-    <div className="container">
-      <h2>About Us:</h2>
+    <PageContainer>
+      <Title>About Us:</Title>
       <div className="about">
         <img src={image} />
         <div className="about_content">
@@ -28,7 +30,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 
