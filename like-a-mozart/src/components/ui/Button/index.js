@@ -1,9 +1,14 @@
-import "./style.css";
-
-const Button = ({ className, ...props }) => (
-  <button className={`${className} form-button`} {...props}>
-    {props.children}
+const Button = ({ children, ...props }) => (
+  <button
+    {...props}
+    style={{
+      justifyContent: "center",
+      color: "#555555",
+      borderRadius: "10px",
+    }}
+  >
+    {children}
   </button>
-);
+)
 
-export default Button;
+export default Button

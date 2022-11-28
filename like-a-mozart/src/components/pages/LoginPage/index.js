@@ -5,7 +5,7 @@ import loginImage from "../../../images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../App/routes";
 import InputText from "../../ui/InputText";
-import Button from "../../ui/Button";
+import Button from "../../ui/SubmitButton";
 import * as yup from "yup";
 import Form from "../../ui/Form";
 import {
