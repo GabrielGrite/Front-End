@@ -1,4 +1,4 @@
-import { merge, mergeRight, pick, reduce } from "ramda";
+import { mergeRight, reduce } from "ramda";
 import { useEffect, useState } from "react";
 import api from "../api/api";
 import { notifyUnexpectedError } from "../lib/notification";

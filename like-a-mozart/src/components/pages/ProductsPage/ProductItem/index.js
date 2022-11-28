@@ -1,5 +1,4 @@
 import "./style.css";
-import placeholderImage from "../../../../images/secondary-banner-placeholder.jpg";
 import { formatMoney } from "../../../../lib/money-utils";
 
 const ProductItem = ({ product }) => {

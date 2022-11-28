@@ -1,6 +1,5 @@
-import { equals, not } from "ramda";
+import { equals } from "ramda";
 import React, { useContext } from "react";
-import useForm from "../../../hooks/useForm";
 import { useFormContext } from "../Form";
 
 export const CheckOption = ({ name, children, ...props }) => {

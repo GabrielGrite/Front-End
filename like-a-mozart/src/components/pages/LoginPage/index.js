@@ -1,7 +1,6 @@
-import useForm, { isValid } from "../../../hooks/useForm";
+import useForm from "../../../hooks/useForm";
 import "./style.css";
 import "./utils.css";
-import loginImage from "../../../images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../App/routes";
 import InputText from "../../ui/InputText";
@@ -14,7 +13,6 @@ import {
   notifyUnexpectedError,
 } from "./../../../lib/notification";
 import api from "../../../api/api";
-import { storeAuthenticatedUser } from "../../../api/localStorage";
 import { useAuthContext } from "../../App/AuthenticationProvider";
 
 const LoginPage = () => {

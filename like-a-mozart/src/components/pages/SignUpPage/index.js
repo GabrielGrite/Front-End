@@ -1,6 +1,5 @@
-import useForm, { isValid } from "../../../hooks/useForm";
+import useForm from "../../../hooks/useForm";
 import "./style.css";
-import loginImage from "../../../images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../App/routes";
 import InputText from "../../ui/InputText";
