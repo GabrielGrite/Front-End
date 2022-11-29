@@ -2,7 +2,7 @@ import "./style.css";
 import { formatMoney } from "../../../../lib/money-utils";
 
 const ProductItem = ({ product }) => {
-  const { name, type, price, imageUrl } = product;
+  const { name, brand, price, imageUrl } = product;
 
   return (
     <div className="product-item">
@@ -14,7 +14,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="product-content">
         <h3 className="product-name">{name}</h3>
-        <span className="product-category">Tipo: {type}</span>
+        <span className="product-category">{brand.name}</span>
         <p className="product-price">{formatMoney(price)}</p>
       </div>
       <br />
