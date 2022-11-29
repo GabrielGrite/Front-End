@@ -1,6 +1,3 @@
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const MusicIcon = props => (
   <i className="fa-solid fa-music"> {props.children}</i>
 );

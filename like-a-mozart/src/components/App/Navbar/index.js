@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import MusicIcon from "../../ui/MusicIcon";
 import { useState } from "react";
 import { ROUTES } from "../routes";
+import { notifySuccess } from "../../../lib/notification";
+import { useAuthContext } from "../AuthenticationProvider";
 
 const NavbarMenu = ({ active, ...props }) => (
   <ul className={`navbar__menu ${active ? "active" : ""}`} {...props} />
@@ -32,6 +34,7 @@ const MobileMenu = props => (
 );
 
 const Navbar = () => {
+  const { authenticated, authenticatedUser, logout } = useAuthContext();
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => setMenuActive(it => !it);
   const navigate = useNavigate();
@@ -42,6 +45,14 @@ const Navbar = () => {
     event.preventDefault();
     closeMenu();
     navigate(ROUTES.login);
+  };
+
+  const handleLogoutClick = event => {
+    event.preventDefault();
+    closeMenu();
+    logout();
+    navigate(ROUTES.home);
+    notifySuccess(`Sessão encerrada, ${authenticatedUser.name}.`);
   };
 
   return (
@@ -67,7 +78,18 @@ const Navbar = () => {
               Produtos
             </NavbarLink>
           </NavbarItem>
-          <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
+          {authenticated ? (
+            <>
+              {/* <NavbarItem>
+                  <NavbarLink to={ROUTES.profile} onClick={closeMenu}>
+                    Minha conta
+                  </NavbarLink>
+                </NavbarItem> */}
+              <NavbarButton onClick={handleLogoutClick}>Logout</NavbarButton>
+            </>
+          ) : (
+            <NavbarButton onClick={handleLoginClick}>Login</NavbarButton>
+          )}
         </NavbarMenu>
       </div>
     </div>

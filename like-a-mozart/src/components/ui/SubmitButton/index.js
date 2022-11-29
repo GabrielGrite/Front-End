@@ -1,9 +1,9 @@
 import "./style.css";
 
-const Button = ({ className, ...props }) => (
+const SubmitButton = ({ className, ...props }) => (
   <button className={`${className} form-button`} {...props}>
     {props.children}
   </button>
 );
 
-export default Button;
+export default SubmitButton;

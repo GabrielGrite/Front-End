@@ -11,23 +11,27 @@ import { ROUTES } from "./routes";
 import SignUpPage from "../pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthenticationProvider from "./AuthenticationProvider";
+import Box from "../ui/Box";
 
 const App = () => {
   return (
-    <>
+    <Box>
       <BrowserRouter>
-        <Navbar />
-        <ToastContainer />
-        <Routes>
-          <Route element={<HomePage />} path={ROUTES.home} exact />
-          <Route element={<LoginPage />} path={ROUTES.login} exact />
-          <Route element={<SignUpPage />} path={ROUTES.signUp} exact />
-          <Route element={<ProductsPage />} path={ROUTES.products} exact />
-          <Route element={<AboutPage />} path={ROUTES.about} exact />
-        </Routes>
-        <Footer />
+        <AuthenticationProvider>
+          <Navbar />
+          <ToastContainer />
+          <Routes>
+            <Route element={<HomePage />} path={ROUTES.home} exact />
+            <Route element={<LoginPage />} path={ROUTES.login} exact />
+            <Route element={<SignUpPage />} path={ROUTES.signUp} exact />
+            <Route element={<ProductsPage />} path={ROUTES.products} exact />
+            <Route element={<AboutPage />} path={ROUTES.about} exact />
+          </Routes>
+          <Footer />
+        </AuthenticationProvider>
       </BrowserRouter>
-    </>
+    </Box>
   );
 };
 

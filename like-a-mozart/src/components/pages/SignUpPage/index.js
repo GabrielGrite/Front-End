@@ -1,10 +1,9 @@
-import useForm, { isValid } from "../../../hooks/useForm";
+import useForm from "../../../hooks/useForm";
 import "./style.css";
-import loginImage from "../../../images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../App/routes";
 import InputText from "../../ui/InputText";
-import Button from "../../ui/Button";
+import Button from "../../ui/SubmitButton";
 import * as yup from "yup";
 import Form, { useFormContext } from "../../ui/Form";
 import { useState } from "react";
@@ -13,8 +12,13 @@ import InputTextMask from "../../ui/InputTextMask";
 import zipCodeService from "../../../api/zipCodeService";
 import { isEmpty } from "../../../lib/string-utils";
 import BrazilStateSelector from "../../ui/BrazilStateSelector";
-import { notifySuccess } from "../../../lib/notification";
+import {
+  notifyError,
+  notifySuccess,
+  notifyUnexpectedError,
+} from "../../../lib/notification";
 import Checkbox from "../../ui/Checkbox";
+import api from "../../../api/api";
 
 const Row = ({ className, children }) => (
   <div className={`flex-row ${className}`}>{children}</div>
@@ -79,11 +83,11 @@ const SecondStepForm = ({ previousStep }) => {
         .resolve(event.target.value)
         .then(({ address, state, city, error }) => {
           if (error) {
-            form.setFieldError("zipCode", ["CEP não encontrado"]);
+            form.setFieldError("addressZipCode", ["CEP não encontrado"]);
           } else {
-            form.setFieldValue("address", address);
-            form.setFieldValue("state", state);
-            form.setFieldValue("city", city);
+            form.setFieldValue("addressStreet", address);
+            form.setFieldValue("addressState", state);
+            form.setFieldValue("addressCity", city);
           }
         });
     }
@@ -94,19 +98,26 @@ const SecondStepForm = ({ previousStep }) => {
       <span className="signup100-form-title p-b-43">Cadastre seu endereço</span>
       <Row className="flex-row">
         <InputTextMask
-          name="zipCode"
+          name="addressZipCode"
           mask="99.999-999"
           placeholder="CEP"
           onBlur={handleZipCodeBlur}
         />
-        <InputText name="number" placeholder="Número" />
+        <InputText name="addressNumber" placeholder="Número" />
       </Row>
-      <InputText name="address" placeholder="Endereço" />
+      <InputText name="addressStreet" placeholder="Endereço" />
       <Row>
-        <InputText name="city" placeholder="Cidade" />
-        <BrazilStateSelector type="select" name="state" placeholder="Estado" />
+        <InputText name="addressCity" placeholder="Cidade" />
+        <BrazilStateSelector
+          type="select"
+          name="addressState"
+          placeholder="Estado"
+        />
       </Row>
-      <InputText name="complement" placeholder="Complementento (opcional)" />
+      <InputText
+        name="addressComplement"
+        placeholder="Complementento (opcional)"
+      />
       <Checkbox name="receiveEmails">
         Desejo receber emails Like a Mozart?
       </Checkbox>
@@ -126,6 +137,24 @@ const SignUpPage = () => {
 
   const nextStep = () => setCurrentStep(1);
   const previousStep = () => setCurrentStep(0);
+
+  const handleSignup = formValues => {
+    api.signup(formValues).then(
+      user => {
+        notifySuccess(`${user.name}, sua conta foi criada!`);
+        navigate(`/${ROUTES.login}`);
+      },
+      err => {
+        if (err.status == 422) {
+          notifyError(
+            "Verifique se todos os campos foram preenchidos e tente novamente"
+          );
+        } else {
+          notifyUnexpectedError();
+        }
+      }
+    );
+  };
 
   const form = useForm({
     initialValues: {
@@ -165,21 +194,15 @@ const SignUpPage = () => {
         .oneOf([yup.ref("password"), null], "Confirmação de senha inválida")
         .required("Senha é obrigatória"),
       phone: yup.string().required("Telefone é obrigatório"),
-      address: yup.string().required("Endereço é obrigatório"),
-      zipCode: yup.string().required("CEP é obrigatório"),
-      number: yup.string().required("Número é obrigatório"),
-      state: yup.string().required("Estado é obrigatório"),
-      city: yup.string().required("Cidade é obrigatório"),
-      complement: yup.string(),
+      addressStreet: yup.string().required("Endereço é obrigatório"),
+      addressZipCode: yup.string().required("CEP é obrigatório"),
+      addressNumber: yup.string().required("Número é obrigatório"),
+      addressState: yup.string().required("Estado é obrigatório"),
+      addressCity: yup.string().required("Cidade é obrigatório"),
+      addressComplement: yup.string(),
       receiveEmails: yup.bool().required("Campo obrigatório"),
     }),
-    onSubmit: values => {
-      notifySuccess(`${values.name}, sua conta foi criada!`);
-
-      console.log(values);
-
-      navigate(ROUTES.home);
-    },
+    onSubmit: handleSignup,
   });
 
   return (

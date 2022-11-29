@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { pick, map, prop, isEmpty } from "ramda";
+import { map, prop, isEmpty } from "ramda";
 
 const initialState = {
   values: {},
